@@ -30,7 +30,7 @@ const _fech_app_process=(url, funtion_action)=>{
     .then(res=>{
         for (let index = 0; index < res.data.length; index++) {
             // console.log(res.data[index].bitly_url)
-            funtion_action(res.data[index].url)
+            funtion_action(res.data[index].images.original.url  )
         }  
     }).catch(error=>console.error(error))
 }
