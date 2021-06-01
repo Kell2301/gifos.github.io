@@ -1,3 +1,5 @@
+"use strict"
+
 const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         api_url_base="https://api.giphy.com/v1/gifs",
         api_trending_endpointt="/trending",
@@ -8,7 +10,7 @@ const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         gifs_container=document.querySelector('.trending-slider-contenedor .trending-slider-box'),
         listen_izq=document.querySelector('#trending-btn-previous'),
         listen_der=document.querySelector('#trending-btn-next')
-        console.log(gifs_container)
+        
 
         // Se crean funciones para la lecturas de eventos en los botones IZQ o DER.
 const listen_id= (id_name,funcion_acive)=>{
@@ -24,12 +26,14 @@ const listen_class= (class_name,funcion_acive)=>{
         class_element.addEventListener('click',funcion_acive)
     }
 }
+
 const _fech_app_process=(url, funtion_action)=>{
     fetch(url)
     .then(res=>res.json())
     .then(res=>{
         for (let index = 0; index < res.data.length; index++) {
             // console.log(res.data[index].bitly_url)
+
             funtion_action(res.data[index].images.original.url  )
         }  
     }).catch(error=>console.error(error))
