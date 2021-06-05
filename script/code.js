@@ -5,7 +5,7 @@ const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         api_trending_endpointt="/trending",
         api_search_endpoint="/search",
         api_search_tag="tag=",
-        api_limit="limit=3",
+        api_limit="limit=100",
         api_rating="rating=g",
         gifs_container=document.querySelector('.trending-slider-contenedor .trending-slider-box'),
         listen_izq=document.querySelector('#trending-btn-previous'),
@@ -34,7 +34,9 @@ const _fech_app_process=(url, funtion_action)=>{
         for (let index = 0; index < res.data.length; index++) {
             // console.log(res.data[index].bitly_url)
 
-            funtion_action(res.data[index].images.original.url  )
+            funtion_action(res.data[index].images.original.url)
+            // funcion para traer el gif por medio de video
+            //funtion_action(res.data[index].images.original.mp4)
         }  
     }).catch(error=>console.error(error))
 }
@@ -47,6 +49,12 @@ const get_gifs_url= url =>{
         <img src="${url}" alt="img_gifs"></img>
     </div>
     `
+    // elemento content para hacerlo con el tag video
+    // const content=`
+    //     <div class="trending-slider" id="trending-slider">
+    //         <video src="${url}" autoplay="true" loop="true"></video>
+    //     </div>
+    // `
     gifs_container.insertAdjacentHTML("afterbegin",content)
 }
 
