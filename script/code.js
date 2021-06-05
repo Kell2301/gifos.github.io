@@ -41,7 +41,7 @@ const _fech_app_process=(url, funtion_action)=>{
 const show_previous_gif=()=>{
     console.log("show gif")
 }
-get_gifs_url= url =>{
+const get_gifs_url= url =>{
     const content=`
     <div class="trending-slider" id="trending-slider">
         <img src="${url}" alt="img_gifs"></img>
@@ -51,7 +51,7 @@ get_gifs_url= url =>{
 }
 
 const get_gifs= ()=>{
-    url=`${api_url_base}${api_trending_endpointt}?${api_key}&${api_limit}&${api_rating}`
+    const url=`${api_url_base}${api_trending_endpointt}?${api_key}&${api_limit}&${api_rating}`
     _fech_app_process(url,get_gifs_url)
 }
 

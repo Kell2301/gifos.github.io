@@ -1,6 +1,7 @@
 
 .trending {
-    margin-top: 79px;
+    
+    margin: 79px 0 0 0;
     background-color: $gris-claro;
     padding-bottom: 82px;
 
@@ -29,7 +30,6 @@
 
     display: flex;
     margin: 23px auto 0 auto;
-
     max-width: 900px;
     width: 100%;
     height: 187px;
@@ -121,6 +121,7 @@
 
     .trending-slider-box {
         overflow-x: hidden;
+        margin: 0;
         width: 795px;
     }
 
@@ -245,6 +246,7 @@
     }
 
     .trending-slider-box {
+        margin: 0;
         width: 1133px;
     }
 

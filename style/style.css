@@ -1163,7 +1163,7 @@ header .navbar nav .menu input:checked ~ label .span3 {
 }
 
 .trending {
-  margin-top: 79px;
+  margin: 79px 0 0 0;
   background-color: #F3F5F8;
   padding-bottom: 82px;
 }
@@ -1298,6 +1298,7 @@ header .navbar nav .menu input:checked ~ label .span3 {
   }
   .trending-slider-box {
     overflow-x: hidden;
+    margin: 0;
     width: 795px;
   }
   .trending-slider {
@@ -1423,6 +1424,7 @@ header .navbar nav .menu input:checked ~ label .span3 {
     padding-bottom: 182px;
   }
   .trending-slider-box {
+    margin: 0;
     width: 1133px;
   }
   .trending-slider {
