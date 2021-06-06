@@ -34,17 +34,14 @@ const _fech_app_process=(url, funtion_action)=>{
         for (let index = 0; index < res.data.length; index++) {
             // Ver info del api
             console.log(res.data[index])
-            console.log(typeof(res.data[index].user.username))
-            if(typeof(res.data[index].user.username) !== "string"){
-                console.log("Not name")
-            }else{
-                const data_fech= new Array(
-                    res.data[index].images.original.url,
-                    res.data[index].title, 
-                    res.data[index].title)
-                    
-                funtion_action(data_fech)
-            }
+           
+            const data_fech= new Array(
+                res.data[index].images.original.url,
+                res.data[index].username, 
+                res.data[index].title)
+
+            funtion_action(data_fech)
+            
             // console.log(res.data[index].title)
             
             
@@ -96,7 +93,7 @@ const get_gifs_url_users_titles= data =>{
     //         <video src="${url}" autoplay="true" loop="true"></video>
     //     </div>
     // `
-    gifs_container.insertAdjacentHTML("afterbegin",content)
+    gifs_container.insertAdjacentHTML("beforeend",content)
 }
 
 const get_gifs= ()=>{
