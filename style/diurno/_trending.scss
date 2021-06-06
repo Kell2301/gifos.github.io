@@ -31,6 +31,9 @@
 }
 
 .trending-slider-box{
+    position: relative;
+    top:0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -39,20 +42,101 @@
     &::-webkit-scrollbar{
         display: none;
     }
+    
 }
+
+// hover sobre imagen en cada gif
+
+
+
 .trending-slider {
     margin: 32px 22px 0 22px;
     max-width: 900px;
     width: 243px;
     height: 187px;
-    
+    position: relative;
+    top:0;
+    left: 0;
+
     img{
         width: 243px;
         height: 187px;
-        object-fit: cover;
-        
+        transition: all 300ms ease-in-out;
+        // object-fit: cover;   
     }
+    .trenging_slider_img_hover{
+        display: none;
+    }
+    &:hover{
+        
+        .trenging_slider_img_hover{
+            
+            display: unset;
+            background-color: $purpura_2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 243px;
+            height: 187px;
+            .btn_trenging_slider_imgs_content{
+                position: absolute;
+                top: 10px;
+                left: 54.4257%;
+                .icon{
+                    width: 22px;
+                    height: 22px;
+                }
+                .btn_trenging_slider_box_img{
+                    
+                    margin: 0 11px 0 0;
+                    border: none;
+                    background-color: unset;
+                    .icon_hiden{
+                        display: none;
+                    }
+                    
+                    &:hover{
+                        .icon_favorito_hover,.icon_download_hover,.icon_max_hover{
+                            display: unset;
+                        }
+                        .icon_favorito,.icon_download,.icon_max{
+                            display: none;
+                        }
+                        cursor: pointer;
+                    }
+                    &:active{
+                        .icon_favorito_activo{
+                            display: unset;
+                        }
+                        .icon_favorito,.icon_favorito_hover{
+                            display: none;
+                        }
+                    }
+                }
+                
+            }
+            .trenging_slider_img_user_title{
+                position: absolute;
+                top: 65.8181%;
+                left: 5.0420%;
+                h2{
+                    text-align: start;
+                    font-size: 15px;
+                    color: white;
+                    margin: 0;
+                    padding: 0;
+                    &:last-child{
+                        font-size: 16px;
+                    }
+                }
+                
+            }
+
+        }
+    }
+   
 }
+
 
 .gif-contenedor {
    
@@ -97,19 +181,16 @@
         img{
             width: 357px;
             height: 275px;
-            object-fit: cover;
+            
             
         }
     }
 
     // flechas para mover los gifs
     .slider-prev, .slider-next{
-        border: 1px solid $purpura;
+        display: unset;
         width: 40px;
         height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         .prev-blanco, .next-blanco{
             display: none;
             width: 40px;
@@ -118,6 +199,7 @@
 
     .slider-prev:hover {
         background-color: $purpura;
+        cursor: pointer;
         .prev-purpura {
             display: none;
         }
@@ -128,6 +210,7 @@
 
     .slider-next:hover {
         background-color: $purpura;
+        cursor: pointer;
         .next-purpura {
             display: none;
         }
@@ -141,26 +224,11 @@
 
 @media screen and (min-width: 1024px) {
     .trending-slider-contenedor {
-        margin: 53px 0px 0 0px;
+        margin: 53px 0px 182px 0px;
     }
-
-
-
-    .trending-slider-box {
-        overflow-x: hidden;
-        margin: 0;
-        width: 795px;
-    }
-
+    
     .trending-slider {
-        overflow-x: hidden;
-        transform: translateX(0);
-        margin: 0;
-        padding: 0;
-        width: 3080px;
-        max-width: 3080px;
-        display: flex;
-        justify-content: flex-start;
+        margin: 0 29px 0 0;
     }
 
     .gif-contenedor {

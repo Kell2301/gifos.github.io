@@ -5,7 +5,7 @@ const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         api_trending_endpointt="/trending",
         api_search_endpoint="/search",
         api_search_tag="tag=",
-        api_limit="limit=10",
+        api_limit="limit=5",
         api_rating="rating=g",
         gifs_container=document.querySelector('.trending-slider-contenedor .trending-slider-box'),
         listen_izq=document.querySelector('#trending-btn-previous'),
@@ -32,9 +32,22 @@ const _fech_app_process=(url, funtion_action)=>{
     .then(res=>res.json())
     .then(res=>{
         for (let index = 0; index < res.data.length; index++) {
-            // console.log(res.data[index].bitly_url)
-
-            funtion_action(res.data[index].images.original.url)
+            // Ver info del api
+            console.log(res.data[index])
+            console.log(typeof(res.data[index].user.username))
+            if(typeof(res.data[index].user.username) !== "string"){
+                console.log("Not name")
+            }else{
+                const data_fech= new Array(
+                    res.data[index].images.original.url,
+                    res.data[index].title, 
+                    res.data[index].title)
+                    
+                funtion_action(data_fech)
+            }
+            // console.log(res.data[index].title)
+            
+            
             // funcion para traer el gif por medio de video
             //funtion_action(res.data[index].images.original.mp4)
         }  
@@ -43,10 +56,38 @@ const _fech_app_process=(url, funtion_action)=>{
 const show_previous_gif=()=>{
     console.log("show gif")
 }
-const get_gifs_url= url =>{
+const get_gifs_url_users_titles= data =>{
+    // const conten=""
     const content=`
     <div class="trending-slider" id="trending-slider">
-        <img src="${url}" alt="img_gifs"></img>
+        <img src="${data[0]}" alt="img_gifs"></img>
+        <div class="trenging_slider_img_hover">
+            <div class="btn_trenging_slider_imgs_content">
+                <button class="btn_trenging_slider_box_img">
+                    <img src="./assets/icon-fav.svg" alt="icon_favorito" class="icon_favorito icon">
+                    <img src="./assets/icon-fav-active.svg" alt="icon_favorito_activo "
+                        class="icon_favorito_activo icon icon_hiden">
+                    <img src="./assets/icon-fav-hover.svg" alt="icon_favorito_hover"
+                        class="icon_favorito_hover icon icon_hiden">
+                </button>
+                <button class="btn_trenging_slider_box_img">
+                    <img src="./assets/icon-download.svg" alt="icon_download" class="icon_download icon">
+
+                    <img src="./assets/icon-download-hover.svg" alt="icon_download_hover"
+                        class="icon_download_hover icon icon_hiden">
+                </button>
+                <button class="btn_trenging_slider_box_img">
+                    <img src="./assets/icon-max-normal.svg" alt="icon_max" class="icon_max icon">
+
+                    <img src="./assets/icon-max-hover.svg" alt="icon_max_hover"
+                        class="icon_max_hover icon icon_hiden">
+                </button>
+            </div>
+            <div class="trenging_slider_img_user_title">
+                <h2>${data[1]}</h2>
+                <h2>${data[2]}</h2>
+            </div>
+        </div>
     </div>
     `
     // elemento content para hacerlo con el tag video
@@ -60,7 +101,7 @@ const get_gifs_url= url =>{
 
 const get_gifs= ()=>{
     const url=`${api_url_base}${api_trending_endpointt}?${api_key}&${api_limit}&${api_rating}`
-    _fech_app_process(url,get_gifs_url)
+    _fech_app_process(url,get_gifs_url_users_titles)
 }
 
 get_gifs()
