@@ -1,11 +1,13 @@
 "use strict"
+let show_gif_numer=0,
+    data_apy_length=0
 
 const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         api_url_base="https://api.giphy.com/v1/gifs",
         api_trending_endpointt="/trending",
         api_search_endpoint="/search",
         api_search_tag="tag=",
-        api_limit="limit=5",
+        api_limit="limit=10",
         api_rating="rating=g",
         gifs_container=document.querySelector('.trending-slider-contenedor .trending-slider-box'),
         listen_izq=document.querySelector('#trending-btn-previous'),
@@ -38,7 +40,9 @@ const _fech_app_process=(url, funtion_action)=>{
             const data_fech= new Array(
                 res.data[index].images.original.url,
                 res.data[index].username, 
-                res.data[index].title)
+                res.data[index].title,
+                index,
+                res.data.length)
 
             funtion_action(data_fech)
             
@@ -50,13 +54,40 @@ const _fech_app_process=(url, funtion_action)=>{
         }  
     }).catch(error=>console.error(error))
 }
-const show_previous_gif=()=>{
-    console.log("show gif")
+
+
+const show_gif=(next=0,previous=0,length)=>{
+
+    show_gif_numer=show_gif_numer+(next+previous)
+
+    if(length!=0 && typeof(length)!="undefined" && isNaN(length)===false){
+        data_apy_length=length
+    }
+
+    if(show_gif_numer<0){
+        show_gif_numer=0
+    }else if(show_gif_numer>=data_apy_length){
+        show_gif_numer=data_apy_length-1 
+    }
+    // console.log(`Numero es: ${show_gif_numer}`)
+
+    
+
 }
+const show_next_gif=()=>{
+    let next=1
+    show_gif(next,0)
+}
+const show_previous_gif=()=>{
+    let previous=(-1)
+    show_gif(0,previous)  
+}
+
+
 const get_gifs_url_users_titles= data =>{
     // const conten=""
     const content=`
-    <div class="trending-slider" id="trending-slider">
+    <div class="trending-slider trending-slider-position_${data[3]} " id="trending-slider">
         <img src="${data[0]}" alt="img_gifs"></img>
         <div class="trenging_slider_img_hover">
             <div class="btn_trenging_slider_imgs_content">
@@ -94,9 +125,14 @@ const get_gifs_url_users_titles= data =>{
     //     </div>
     // `
     gifs_container.insertAdjacentHTML("beforeend",content)
+
+    if(data[3]==0){
+        show_gif(0,0,data[4])
+
+    }
 }
 
-const get_gifs= ()=>{
+const get_gifs=()=>{
     const url=`${api_url_base}${api_trending_endpointt}?${api_key}&${api_limit}&${api_rating}`
     _fech_app_process(url,get_gifs_url_users_titles)
 }
@@ -104,4 +140,4 @@ const get_gifs= ()=>{
 get_gifs()
 
 listen_id("trending-btn-previous",show_previous_gif)
-listen_id("trending-btn-next",show_previous_gif)
+listen_id("trending-btn-next",show_next_gif)
