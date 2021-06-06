@@ -173,11 +173,10 @@
             display: none;
         }
     }
-
     .trending-slider {
         width: 357px;
         height: 275px;
-    
+        
         img{
             width: 357px;
             height: 275px;
@@ -185,6 +184,20 @@
             
         }
     }
+    .trending-slider:hover{
+        .trenging_slider_img_hover{
+    
+            width: 357px;
+            height: 275px;
+            .btn_trenging_slider_imgs_content .icon{
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+    
+
+    
 
     // flechas para mover los gifs
     .slider-prev, .slider-next{

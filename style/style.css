@@ -1454,6 +1454,14 @@ header .navbar nav .menu input:checked ~ label .span3 {
     width: 357px;
     height: 275px;
   }
+  .trending-slider:hover .trenging_slider_img_hover {
+    width: 357px;
+    height: 275px;
+  }
+  .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .icon {
+    width: 32px;
+    height: 32px;
+  }
   .slider-prev, .slider-next {
     display: unset;
     width: 40px;
