@@ -1,3 +1,4 @@
+"use strict"
 let body = document.getElementById('body');
 let url = window.location.pathname;
 
@@ -77,7 +78,7 @@ function cambioLogos() {
         logoMobile.setAttribute("src", "./assets/logo-mobile.svg");
     } else {
         logoDesktop.setAttribute("src", "./assets/logo-modo-noc.svg");
-        logoMobile.setAttribute("src", "./assets/logo-mobile-modo-noc.svg");
+        logoMobile.setAttribute("src", "./assets/logo-mobile-modo-noct.svg");
     }
 }
 
@@ -87,10 +88,10 @@ function cambioIconoCrearGifo() {
 
     if (darkModeBtn.innerHTML == 'MODO NOCTURNO') {
         iconoCrearGifo.setAttribute("src", "./assets/button-crear-gifo.svg");
-        iconoCrearGifoHover.setAttribute("src", "./assets/button-crear-gifo-hover.svg");
+        iconoCrearGifoHover.setAttribute("src", "./assets/CTA-crear-gifo-hover.svg");
     } else {
-        iconoCrearGifo.setAttribute("src", "./assets/button-crear-gifo-hover.svg");
-        iconoCrearGifoHover.setAttribute("src", "./assets/button-crear-gifo-dark.svg");
+        iconoCrearGifo.setAttribute("src", "./assets/CTA-crear-gifo-modo-noc.svg");
+        iconoCrearGifoHover.setAttribute("src", "./assets/CTA-crear-gifo-hover-modo-noc.svg");
     }
 
 }

@@ -67,9 +67,10 @@ const show_gif=(next=0,previous=0,length)=>{
     if(show_gif_numer<0){
         show_gif_numer=0
     }else if(show_gif_numer>=data_apy_length){
-        show_gif_numer=data_apy_length-1 
+        show_gif_numer=0
     }
-    // console.log(`Numero es: ${show_gif_numer}`)
+
+    console.log(`Numero es: ${show_gif_numer}`)
 
     
 
@@ -87,7 +88,7 @@ const show_previous_gif=()=>{
 const get_gifs_url_users_titles= data =>{
     // const conten=""
     const content=`
-    <div class="trending-slider trending-slider-position_${data[3]} " id="trending-slider">
+    <div class="trending-slider" id="trending-slider-position_${data[3]}">
         <img src="${data[0]}" alt="img_gifs"></img>
         <div class="trenging_slider_img_hover">
             <div class="btn_trenging_slider_imgs_content">

@@ -309,29 +309,29 @@ header .navbar nav .menu input:checked ~ label .span3 {
     height: 54px;
     width: 54px;
     padding-top: 0;
-    border-radius: 50%;
-    border: 1px solid #572EE5;
-    background-color: unset;
+    background-color: none;
   }
   header .navbar nav .menu ul li .menu-creargifo .mas-purpura {
-    width: 16px;
+    width: 54px;
   }
-  header .navbar nav .menu ul li .menu-creargifo .mas-blanco {
-    width: 16px;
+  header .navbar nav .menu ul li .menu-creargifo .mas-blanco, header .navbar nav .menu ul li .menu-creargifo .mas-blanco_active {
+    width: 54px;
     display: none;
   }
   header .navbar nav .menu ul li .menu-creargifo:hover {
-    background-color: #572EE5;
     border-bottom: none;
   }
   header .navbar nav .menu ul li .menu-creargifo:hover .mas-purpura {
     display: none;
   }
   header .navbar nav .menu ul li .menu-creargifo:hover .mas-blanco {
-    display: block;
+    display: unset;
   }
-  header .navbar nav .menu ul li .menu-creargifo:active {
-    background-color: #9CAFC3;
+  header .navbar nav .menu ul li .menu-creargifo:active .mas-blanco, header .navbar nav .menu ul li .menu-creargifo:active .mas-purpura {
+    display: none;
+  }
+  header .navbar nav .menu ul li .menu-creargifo:active .mas-blanco_active {
+    display: unset;
   }
   header .navbar nav .menu ul li:last-child {
     margin-left: 53px;
@@ -1592,9 +1592,6 @@ header .navbar nav .menu input:checked ~ label .span3 {
 }
 
 @media screen and (min-width: 1440px) {
-  .trending {
-    padding: 0;
-  }
   .trending h2 {
     padding-top: 78px;
     font-size: 30px;
@@ -1603,20 +1600,8 @@ header .navbar nav .menu input:checked ~ label .span3 {
     font-size: 18px;
     padding: 14px 0 0 0;
   }
-  .trending-slider-contenedor {
-    margin: 53px 94px 0 94px;
-    padding-bottom: 182px;
-  }
-  .trending-slider-box {
-    margin: 0;
-    width: 1133px;
-  }
-  .trending-slider {
-    height: 275px;
-  }
   .gif-contenedor {
     width: 357px;
-    height: 275px;
   }
   .gif-acciones {
     width: 357px;
@@ -2243,15 +2228,6 @@ footer .datos .footer-copyright p {
   }
   .body-dark header .navbar nav .menu ul li .menu-items:hover {
     border-bottom: 2px solid #50E3C2;
-  }
-  .body-dark header .navbar nav .menu ul li .menu-creargifo {
-    border: 1px solid #ffffff;
-  }
-  .body-dark header .navbar nav .menu ul li .menu-creargifo:hover {
-    background-color: #ffffff;
-  }
-  .body-dark header .navbar nav .menu ul li .menu-creargifo:active {
-    background-color: #ffffff;
   }
   .body-dark header .navbar nav .menu ul {
     background-color: unset;

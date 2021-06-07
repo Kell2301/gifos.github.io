@@ -334,8 +334,6 @@
 @media screen and (min-width: 1440px) {
    
     .trending {
-        padding: 0;
-
         h2 {
             padding-top: 78px;
             font-size: 30px;
@@ -346,24 +344,9 @@
             padding: 14px 0 0 0;
         }
     }
-
-    .trending-slider-contenedor {
-        margin: 53px 94px 0 94px;
-        padding-bottom: 182px;
-    }
-
-    .trending-slider-box {
-        margin: 0;
-        width: 1133px;
-    }
-
-    .trending-slider {
-        height: 275px;
-    }
-
     .gif-contenedor {
         width: 357px;
-        height: 275px;
+        
     }
 
     .gif-acciones {
