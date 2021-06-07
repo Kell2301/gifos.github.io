@@ -583,10 +583,11 @@ footer .datos .footer-copyright p {
   line-height: 19px;
   font-weight: 400;
   background-color: unset;
+  width: 100%;
 }
 
-.main-header .buscador-contenedor .buscador .buscador-bloque .buscador-y-lupa .input-buscador:focus {
-  border: none;
+.main-header .buscador-contenedor .buscador .buscador-bloque .buscador-y-lupa .input-buscador:focus-visible {
+  outline: unset;
 }
 
 .main-header .buscador-contenedor .buscador .buscador-bloque #btn-buscador {
@@ -647,6 +648,10 @@ footer .datos .footer-copyright p {
   text-align: left;
   line-height: 19px;
   font-weight: 400;
+}
+
+.buscador-activo .buscador-bloque .buscador-y-lupa .input-buscador:focus-visible {
+  outline: unset;
 }
 
 .buscador-activo .buscador-bloque #btn-buscador {

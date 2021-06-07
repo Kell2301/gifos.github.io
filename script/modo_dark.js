@@ -91,7 +91,7 @@ function cambioIconosBusqueda() {
         btnCerrarBusqueda.setAttribute("src", "./assets/close.svg");
     } else {
         iconBuscar.setAttribute("src", "./assets/icon-search-mod-noc.svg");
-        btnCerrarBusqueda.setAttribute("src", "./assets/Button-close-modo-noc.svg");
+        btnCerrarBusqueda.setAttribute("src", "./assets/close-modo-noct.svg");
     }
 
 }

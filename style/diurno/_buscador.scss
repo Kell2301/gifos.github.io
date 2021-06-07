@@ -38,7 +38,7 @@
 
                 .buscador-y-lupa {
                     display: flex;
-
+                    
                     .buscador-lupa-gris {
                         padding-top: 2px;
                         width: 22px;
@@ -55,8 +55,9 @@
                         line-height: 19px;
                         font-weight: 400;
                         background-color: unset;
-                        &:focus{
-                            border: none;
+                        width: 100%;
+                        &:focus-visible{
+                            outline: unset;
                         }
                     }
                 }
@@ -89,7 +90,7 @@
     border-radius: 27px;
     width: 334px;
     height: 200px;
-
+    
     .buscador-bloque {
         width: 100%;
         height: 50px;
@@ -115,6 +116,9 @@
                 text-align: left;
                 line-height: 19px;
                 font-weight: 400;
+                &:focus-visible{
+                    outline: unset;
+                }
             }
         }
 
