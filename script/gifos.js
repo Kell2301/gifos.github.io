@@ -1,4 +1,5 @@
-apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
+"use strict"
+apiKey = "GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG";
 
 misGifosArray = [];
 misGifosString = localStorage.getItem("misGifos");
@@ -144,3 +145,4 @@ function maxGifDesktopMG(img, id, slug, user, title) {
 function cerrarModalDesktopMG() {
     modalDesktopMG.style.display = "none";
 } 
+

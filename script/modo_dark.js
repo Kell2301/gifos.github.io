@@ -1,3 +1,4 @@
+"use strict"
 let body = document.getElementById('body');
 let url = window.location.pathname;
 
@@ -56,9 +57,6 @@ function cambioMode() {
     }
 }
 
-
-
-
 function cambioLogos() {
     let logoMobile = document.getElementById('logo');
     let logoDesktop = document.getElementById('logo-desktop');
@@ -67,7 +65,7 @@ function cambioLogos() {
         logoDesktop.setAttribute("src", "./assets/logo-desktop.svg");
         logoMobile.setAttribute("src", "./assets/logo-mobile.svg");
     } else {
-        logoDesktop.setAttribute("src", "./assets/Logo-modo-noc.svg");
+        logoDesktop.setAttribute("src", "./assets/logo-modo-noc.svg");
         logoMobile.setAttribute("src", "./assets/logo-mobile-modo-noct.svg");
     }
 }
@@ -80,8 +78,8 @@ function cambioIconoCrearGifo() {
         iconoCrearGifo.setAttribute("src", "./assets/button-crear-gifo.svg");
         iconoCrearGifoHover.setAttribute("src", "./assets/CTA-crear-gifo-hover.svg");
     } else {
-        iconoCrearGifo.setAttribute("src", "./assets/CTA-crear-gifo-hover.svg");
-        iconoCrearGifoHover.setAttribute("src", "./assets/CTA-crear-gifo-modo-noc.svg");
+        iconoCrearGifo.setAttribute("src", "./assets/CTA-crear-gifo-modo-noc.svg");
+        iconoCrearGifoHover.setAttribute("src", "./assets/CTA-crear-gifo-hover-modo-noc.svg");
     }
 
 }

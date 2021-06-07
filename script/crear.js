@@ -1,4 +1,5 @@
-apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
+"use strict"
+apiKey = "GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG";
 
 let btnComenzar = document.getElementById('btn-creargifo-comenzar');
 let btnGrabar = document.getElementById('btn-creargifo-grabar');

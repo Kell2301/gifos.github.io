@@ -1,5 +1,5 @@
-
-apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
+"use strict"
+apiKey = "GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG";
 
 let pantallaFavoritos = document.getElementById('resultados-favoritos');
 
@@ -162,3 +162,4 @@ function borrarFavMax(gif){
     iconNoFavMax.setAttribute("src", "./assets/icon-fav-hover.svg");
     borrarFav(gif);
 }
+

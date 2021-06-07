@@ -206,22 +206,21 @@ header {
                                 height: 54px;
                                 width: 54px;
                                 padding-top: 0;
-                                border-radius: 50%;
-                                border: 1px solid $purpura;
-                                background-color: unset;
+                                background-color: none;
 
                                 .mas-purpura {
-                                    width: 16px;
+                                    width: 54px;
                                 }
 
-                                .mas-blanco {
-                                    width: 16px;
+                                .mas-blanco,.mas-blanco_active {
+                                    width: 54px;
                                     display: none;
                                 }
+                                
                             }
 
                             .menu-creargifo:hover {
-                                background-color: $purpura;
+                                
                                 border-bottom: none;
 
                                 .mas-prupura {
@@ -229,12 +228,17 @@ header {
                                 }
 
                                 .mas-blanco {
-                                    display: block;
+                                    display: unset;
                                 }
                             }
 
                             .menu-creargifo:active {
-                                background-color: $gris-medio;
+                                .mas-blanco,.mas-purpura{
+                                    display: none;
+                                }
+                                .mas-blanco_active{
+                                    display: unset;
+                                }
                             }
                         }
 
