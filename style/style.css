@@ -585,6 +585,10 @@ footer .datos .footer-copyright p {
   background-color: unset;
 }
 
+.main-header .buscador-contenedor .buscador .buscador-bloque .buscador-y-lupa .input-buscador:focus {
+  border: none;
+}
+
 .main-header .buscador-contenedor .buscador .buscador-bloque #btn-buscador {
   background-color: unset;
   border: none;

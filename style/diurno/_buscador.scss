@@ -55,6 +55,9 @@
                         line-height: 19px;
                         font-weight: 400;
                         background-color: unset;
+                        &:focus{
+                            border: none;
+                        }
                     }
                 }
 
