@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body>
+<body id="body">
 
     <header>
-        <div class="linea_superior_purpura"></div>
+        <div class="linea_purpura"></div>
 
         <div class="navbar">
 
@@ -34,6 +34,7 @@
 
                     <ul id="ul-menu">
                         <li><a href="#" id="menu-modo" class="menu-items">MODO NOCTURNO</a></li>
+                        <li><a href="index.html" class="menu-items">INICIO</a></li>
                         <li><a href="favoritos.html" class="menu-items">FAVORITOS</a></li>
                         <li><a href="gifos.html" class="menu-items">MIS GIFOS</a></li>
                         <li><a href="crear.html" class="menu-creargifo">
@@ -99,24 +100,26 @@
         <section class="trending">
 
             <h2>Trending GIFOS</h2>
-            <p class="trending-text">Mira los últimos GIFO de nuestra comunidad.</p>
+            <p class="trending-text">Mira los últimos GIFOS de nuestra comunidad.</p>
 
             <div class="trending-slider-contenedor">
 
                 <div class="slider-prev" id="trending-btn-previous">
-                    <img src="./assets/button-slider-left.svg" alt="izquierda" class="prev-purpura">
-                    <img src="./assets/button-slider-left-hover.svg" alt="izquierda" class="prev-blanco">
+                    <a href="#">
+                        <img src="./assets/button-slider-left.svg" alt="izquierda" class="prev-purpura">
+                        <img src="./assets/button-slider-left-hover.svg" alt="izquierda" class="prev-blanco">
+                    </a>
                 </div>
 
                 <div class="trending-slider-box">
-                    <div class="trending-slider" id="trending-slider">
-                        <video src="${}"></video>
-                    </div>
+
                 </div>
 
                 <div class="slider-next" id="trending-btn-next">
-                    <img src="./assets/Button-Slider-right.svg" alt="derecha" class="next-purpura">
-                    <img src="./assets/Button-Slider-right-hover.svg" alt="derecha" class="next-blanco">
+                    <a href="#">
+                        <img src="./assets/Button-Slider-right.svg" alt="derecha" class="next-purpura">
+                        <img src="./assets/Button-Slider-right-hover.svg" alt="derecha" class="next-blanco">
+                    </a>
                 </div>
 
             </div>
@@ -152,11 +155,13 @@
             </div>
 
         </div>
-        <div class="linea_inferior_purpura"></div>
+        <div class="linea_purpura"></div>
 
     </footer>
-
-    <script src="./script/code.js"></script>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./script/home.js"></script>
+    <script src="./script/trending.js"></script>
+    <script src="./script/modo_dark.js"></script>
 </body>
 
 </html>

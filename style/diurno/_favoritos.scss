@@ -17,10 +17,10 @@
 #favoritos-vacio {
     text-align: center;
     margin-top: 40px;
-    display: block;
+    display: none;
 
     img {
-        width: 299px;
+        width: 120px;
     }
 
     h3 {
@@ -38,7 +38,7 @@
     text-align: center;
 }
 
-.resultados-favoritos {
+.resultados-favoritos { 
     margin: 38px 10px 53px 10px;
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +91,7 @@
         justify-content: center;
     }
 
-    .resultados-gif-box-fav {
+    .resultados-gif-box-fav { 
         width: 220px;
         height: 200px; 
         margin: 0 10px 25px 10px;
@@ -124,7 +124,7 @@
     }
 
     .favorito-fav {
-       
+     
         cursor: pointer;
     }
 
