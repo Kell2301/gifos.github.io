@@ -1,5 +1,6 @@
-"use strict"
-apiKey = "GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG";
+
+
+apiKey = "QEiNwRIV3GcWQ83yvX6IVcIAST0hxr1n";
 
 let btnComenzar = document.getElementById('btn-creargifo-comenzar');
 let btnGrabar = document.getElementById('btn-creargifo-grabar');
@@ -130,7 +131,7 @@ function subirGifo() {
     pasoActivo[2].classList.add('paso-activo');
     repetirCaptura.style.display = "none";
 
-    fetch(`https://upload.giphy.com/v1/gifs`, {
+    fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, {
         method: 'POST',
         body: form,
     })
@@ -149,11 +150,7 @@ function subirGifo() {
             overlayActions.innerHTML = `
                 <button class="overlay-video-button" id="btn-creargifo-descargar" onclick="descargarGifCreado('${miGifId}')">
                 <img src="./assets/icon-download.svg" alt="download">
-                </button>
-                <button class="overlay-video-button" id="btn-creargifo-link">
-                <img src="./assets/icon-link-normal.svg" alt="link">
-                </button>
-                `;
+                </button> `;
 
             if (misGifosString == null) {
                 misGifosArray = [];
@@ -170,9 +167,8 @@ function subirGifo() {
         .catch(error => console.log("error al subir gif a GIPHY" + error))
 }
 
-//FUNCION DESCARGAR GIF
 async function descargarGifCreado(gifImg) {
-    let blob = await fetch(gifImg).then( img => img.blob());;
+    let blob = await fetch(gifImg).then((img) => img.blob());
     invokeSaveAsDialog(blob, "migifo.gif");
 }
 
@@ -187,7 +183,6 @@ function repetirGifo() {
     btnSubirGifo.style.display = "none";
 
     gifGrabado.style.display = "none";
-
     btnGrabar.style.display = "block";
 
     navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 480, height: 320 } })

@@ -1,5 +1,5 @@
 "use strict"
-apiKey = "GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG";
+let apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
 misGifosArray = [];
 misGifosString = localStorage.getItem("misGifos");
@@ -11,13 +11,12 @@ let modalDesktopMG = document.createElement("div");
 
 buscarMisGifos();
 
-//funciones para mostrar mis gifos en la pagina
 function buscarMisGifos() {
     let pantallaMisGifosVacio = document.getElementById('misgifos-vacio');
 
     if (misGifosString == null || misGifosString == "[]") {
-        pantallaMisGifosVacio.style.display = "block";
-        pantallaMisGifos.style.display = "none";
+        pantallaMisGifosVacio.style.display = "none";
+        pantallaMisGifos.style.display = "block";
  
     } else {
         misGifosArray = JSON.parse(misGifosString);
@@ -65,7 +64,6 @@ function mostrarMisGifos(content) {
     }
 }
 
-//FUNCION BORRAR GIF
 function borrarGifo(gif){
     let arrayAuxGifos = [];
     arrayAuxGifos = JSON.parse(misGifosString);
@@ -84,13 +82,11 @@ function borrarGifo(gif){
 
 
 
-//FUNCION DESCARGAR GIF
 async function descargarGif(gifImg, gifNombre) {
     let blob = await fetch(gifImg).then(img => img.blob());;
     invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
-//FUNCION MAXIMIZAR GIF mobile
 function maxGifMobileMG(img, id, slug, user, title) {
     if (window.matchMedia("(max-width: 1023px)").matches) {
         modalMobileMG.style.display = "block";
@@ -118,7 +114,6 @@ function cerrarModalMobileMG() {
     modalMobileMG.style.display = "none";
 }
 
-//FUNCION MAXIMIZAR DESKTOP
 function maxGifDesktopMG(img, id, slug, user, title) {
     if (window.matchMedia("(min-width: 1023px)").matches) {
         modalDesktopMG.style.display = "block";

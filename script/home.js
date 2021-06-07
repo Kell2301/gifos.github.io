@@ -17,7 +17,6 @@ let busqueda;
 let modalMobile = document.createElement("div");
 let modalDesktop = document.createElement("div");
 
-// BUSCADOR
 inputBuscador.addEventListener('keyup', buscadorActivo);
 
 function buscadorActivo() {
@@ -40,7 +39,6 @@ function buscadorActivo() {
                 console.error("error al traer sugerencias de busqueda", err);
             })
     } else {
-        //funcion para cerrar el buscador cuando se borra todo
         cerrarBoxBusqueda();
     }
 }
@@ -261,14 +259,12 @@ function agregarFavorito(gif) {
 }
 
 
-//DESCARGAR GIF
 async function descargarGif(gifImg, gifNombre) {
     let blob = await fetch(gifImg).then(img => img.blob());;
     invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
 
-//MAXIMIZAR GIF MOBILE mobile
 function maxGifMobile(img, id, slug, user, title) {
     if (window.matchMedia("(max-width: 1023px)").matches) {
         modalMobile.style.display = "block";
@@ -305,7 +301,6 @@ function agregarFavoritoMaxMobile(gif){
 }
 
 
-//MAXIMIZAR GIF DESKTOP
 function maxGifDesktop(img, id, slug, user, title){
     if (window.matchMedia("(min-width: 1023px)").matches){
         modalDesktop.style.display = "block";
