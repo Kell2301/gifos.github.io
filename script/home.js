@@ -146,7 +146,7 @@ function traerBusqueda(content) {
                             <img src="./assets/icon-download.svg" alt="icon-dowlnoad">
                         </button>
                         <button class="iconos-acciones-box max" onclick="maxGifDesktop('${content.images.downsized.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
-                            <img src="./assets/icon-max.svg" alt="icon-max">
+                            <img src="./assets/icon-max-normal.svg" alt="icon-max">
                         </button>
                     </div>
                     <div class="textos-descripcion-gif-resultados">

@@ -100,11 +100,12 @@
 
         .buscador-y-lupa {
             display: flex;
-
+            
             .buscador-lupa-gris {
                 padding-top: 2px;
                 width: 22px;
                 opacity: 1;
+                
             }
 
             .input-buscador {
@@ -131,7 +132,11 @@
             }
 
             .icon-cerrar-busqueda {
+                margin: 10px;
                 width: 14px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -151,6 +156,7 @@
 
             .buscador-sugerencia-texto {
                 margin-left: 20px;
+                width: 100%;
                 border: none;
                 font-family: $roboto;
                 color: $gris-medio;
@@ -159,6 +165,10 @@
                 line-height: 19px;
                 font-weight: 300;
                 cursor: pointer;
+                &:hover{
+                    color:$negro;
+                    
+                }
             }
         }
     }

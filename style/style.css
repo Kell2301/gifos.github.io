@@ -664,7 +664,12 @@ footer .datos .footer-copyright p {
 }
 
 .buscador-activo .buscador-bloque #btn-buscador .icon-cerrar-busqueda {
+  margin: 10px;
   width: 14px;
+}
+
+.buscador-activo .buscador-bloque #btn-buscador .icon-cerrar-busqueda:hover {
+  cursor: pointer;
 }
 
 .buscador-activo .buscador-sugerencias {
@@ -686,6 +691,7 @@ footer .datos .footer-copyright p {
 
 .buscador-activo .buscador-sugerencias .sugerencia .buscador-sugerencia-texto {
   margin-left: 20px;
+  width: 100%;
   border: none;
   font-family: "Roboto", sans-serif;
   color: #9CAFC3;
@@ -694,6 +700,10 @@ footer .datos .footer-copyright p {
   line-height: 19px;
   font-weight: 300;
   cursor: pointer;
+}
+
+.buscador-activo .buscador-sugerencias .sugerencia .buscador-sugerencia-texto:hover {
+  color: #000000;
 }
 
 .trending-sugerencias {
