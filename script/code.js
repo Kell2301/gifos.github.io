@@ -7,13 +7,14 @@ const   api_key="api_key=GMg5tbTmfRwlCGLgyWd0DSZ8yTC4fvrG",
         api_trending_endpointt="/trending",
         api_search_endpoint="/search",
         api_search_tag="tag=",
-        api_limit="limit=10",
+        api_limit="limit=30",
         api_rating="rating=g",
         gifs_container=document.querySelector('.trending-slider-contenedor .trending-slider-box'),
         listen_izq=document.querySelector('#trending-btn-previous'),
-        listen_der=document.querySelector('#trending-btn-next')
-        
-
+        listen_der=document.querySelector('#trending-btn-next'),
+        set_izq_gif=document.querySelector("#trending-btn-previous a"),
+        set_der_gif=document.querySelector("#trending-btn-next a")
+        // console.log(set_der_gif)
         // Se crean funciones para la lecturas de eventos en los botones IZQ o DER.
 const listen_id= (id_name,funcion_acive)=>{
     const id_element= document.querySelector(`#${id_name}`)
@@ -35,7 +36,7 @@ const _fech_app_process=(url, funtion_action)=>{
     .then(res=>{
         for (let index = 0; index < res.data.length; index++) {
             // Ver info del api
-            console.log(res.data[index])
+            // console.log(res.data[index])
            
             const data_fech= new Array(
                 res.data[index].images.original.url,
@@ -65,12 +66,14 @@ const show_gif=(next=0,previous=0,length)=>{
     }
 
     if(show_gif_numer<0){
-        show_gif_numer=0
+        show_gif_numer=data_apy_length-1
     }else if(show_gif_numer>=data_apy_length){
         show_gif_numer=0
     }
 
-    console.log(`Numero es: ${show_gif_numer}`)
+    // console.log(`Numero es: ${show_gif_numer}`)
+    set_izq_gif.setAttribute("href", `#trending-slider-position_${show_gif_numer}`);
+    set_der_gif.setAttribute("href", `#trending-slider-position_${show_gif_numer}`);
 
     
 
