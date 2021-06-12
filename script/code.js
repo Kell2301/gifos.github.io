@@ -1,4 +1,6 @@
+
 "use strict"
+
 let show_gif_numer=0,
     data_apy_length=0
 
@@ -95,7 +97,7 @@ const get_gifs_url_users_titles= data =>{
         <img src="${data[0]}" alt="img_gifs"></img>
         <div class="trenging_slider_img_hover">
             <div class="btn_trenging_slider_imgs_content">
-                <button class="btn_trenging_slider_box_img">
+                <button class="btn_trenging_slider_box_img" onclick="agregarFavoritoBusqueda('${data[0]}')">
                     <img src="./assets/icon-fav.svg" alt="icon_favorito" class="icon_favorito icon">
                     <img src="./assets/icon-fav-active.svg" alt="icon_favorito_activo "
                         class="icon_favorito_activo icon icon_hiden">

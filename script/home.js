@@ -12,6 +12,7 @@ let offsetBusqueda = 0;
 let resultadosBusquedaGIFOS = document.getElementById('resultados-busqueda');
 let btnVerMasResultados = document.getElementById('resultados-vermas');
 
+let favoritosString = "";
 let busqueda;
 
 let modalMobile = document.createElement("div");
@@ -238,7 +239,7 @@ function trendingTopics() {
 
 //FAVORITOS
 function agregarFavoritoBusqueda(gif){
-    let iconFav = document.getElementById('icon-fav-' + gif);
+    let iconFav = document.getElementById('icon-fav-' + gif.length > 200 ? new URLSearchParams(gif).get('cid') : gif);
     iconFav.setAttribute("src", "./assets/icon-fav-active.svg");
 
     agregarFavorito(gif);
@@ -246,9 +247,8 @@ function agregarFavoritoBusqueda(gif){
 
 function agregarFavorito(gif) {
 
-    if (favoritosString == null) {
+    if (favoritosString == null || favoritosString == "") {
         favoritosArray = [];
-
     } else {
         favoritosArray = JSON.parse(favoritosString);
     }

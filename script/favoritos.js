@@ -1,5 +1,5 @@
 "use strict"
-apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
+const apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
 let pantallaFavoritos = document.getElementById('resultados-favoritos');
 
@@ -16,22 +16,27 @@ buscarFavoritos();
 
 function buscarFavoritos() {
     let pantallaFavoritosVacio = document.getElementById('favoritos-vacio');
-
+    console.log(favoritosString.length);
     if (favoritosString == null || favoritosString == "[]") {
-     
+
         pantallaFavoritosVacio.style.display = "block";
         pantallaFavoritos.style.display = "none";
 
     } else {
         favoritosArray = JSON.parse(favoritosString);
-      
+
         let urlFavoritos = `https://api.giphy.com/v1/gifs?ids=${favoritosArray.toString()}&api_key=${apiKey}`;
         fetch(urlFavoritos)
             .then(response => response.json())
             .then(content => {
-                mostrarFavoritos(content);
+                if (content.meta.status === 200) {
+                    mostrarFavoritos(content);
+                } else {
+                    pantallaFavoritos.style.display = "block";
+                }
             })
             .catch(err => {
+                pantallaFavoritosVacio.style.display = "block";
                 console.error('fetch favoritos fallo', err);
             })
     }
@@ -40,7 +45,7 @@ function buscarFavoritos() {
 function mostrarFavoritos(content) {
     let gifosFavoritosArray = content.data;
 
-    for(let i=0; i< gifosFavoritosArray.length; i++) {
+    for (let i = 0; i < gifosFavoritosArray.length; i++) {
         pantallaFavoritos.innerHTML += `
         <div class="resultados-gif-box-fav" onclick="maxGifMobileFav('${content.data[i].images.downsized.url}', '${content.data[i].id}', '${content.data[i].slug}', '${content.data[i].username}', '${content.data[i].title}')">
         <div class="gif-acciones-resultados-fav">
@@ -66,7 +71,7 @@ function mostrarFavoritos(content) {
     }
 }
 
-function borrarFav(gif){
+function borrarFav(gif) {
     let arrayAux = [];
     arrayAux = JSON.parse(favoritosString);
     let indice = arrayAux.indexOf(gif);
@@ -85,7 +90,7 @@ function borrarFav(gif){
 }
 
 async function descargarGif(gifImg, gifNombre) {
-    let blob = await fetch(gifImg).then( img => img.blob());;
+    let blob = await fetch(gifImg).then(img => img.blob());;
     invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
@@ -114,17 +119,17 @@ function maxGifMobileFav(img, id, slug, user, title) {
 
 function cerrarModalMobileFav() {
     modalMobileFav.style.display = "none";
-} 
+}
 
-function borrarFavMaxMob(gif){
+function borrarFavMaxMob(gif) {
     let iconNoFavMaxMob = document.getElementById('icon-borrar-fav-max-mobile-' + gif);
     iconNoFavMaxMob.setAttribute("src", "./assets/icon-fav-hover.svg");
     borrarFav(gif);
 }
 
 
-function maxGifDesktopFav(img, id, slug, user, title){
-    if (window.matchMedia("(min-width: 1023px)").matches){
+function maxGifDesktopFav(img, id, slug, user, title) {
+    if (window.matchMedia("(min-width: 1023px)").matches) {
         modalDesktopFav.style.display = "block";
         modalDesktopFav.innerHTML = `
     <button class="modal-btn-close" onclick="cerrarModalDesktopFav()"><img src="./assets/button-close.svg" alt=""></button>
@@ -141,16 +146,16 @@ function maxGifDesktopFav(img, id, slug, user, title){
         </div>
     </div>
     `;
-    modalDesktopFav.classList.add("modal-activado");
+        modalDesktopFav.classList.add("modal-activado");
         document.body.appendChild(modalDesktopFav);
     }
 }
 
 function cerrarModalDesktopFav() {
     modalDesktopFav.style.display = "none";
-} 
+}
 
-function borrarFavMax(gif){
+function borrarFavMax(gif) {
     let iconNoFavMax = document.getElementById('icon-borrar-fav-max-' + gif);
     iconNoFavMax.setAttribute("src", "./assets/icon-fav-hover.svg");
     borrarFav(gif);

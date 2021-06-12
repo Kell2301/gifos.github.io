@@ -1,8 +1,8 @@
 "use strict"
 let apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
-misGifosArray = [];
-misGifosString = localStorage.getItem("misGifos");
+let misGifosArray = [];
+let misGifosString = localStorage.getItem("misGifos");
 
 let pantallaMisGifos = document.getElementById('resultados-misgifos');
 
