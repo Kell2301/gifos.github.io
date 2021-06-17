@@ -1,4 +1,3 @@
-"use strict"
 let apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
 let misGifosArray = [];
@@ -15,8 +14,8 @@ function buscarMisGifos() {
     let pantallaMisGifosVacio = document.getElementById('misgifos-vacio');
 
     if (misGifosString == null || misGifosString == "[]") {
-        pantallaMisGifosVacio.style.display = "none";
-        pantallaMisGifos.style.display = "block";
+        pantallaMisGifosVacio.style.display = "block";
+        pantallaMisGifos.style.display = "none";
  
     } else {
         misGifosArray = JSON.parse(misGifosString);

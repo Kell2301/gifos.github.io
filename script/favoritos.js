@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 "use strict"
+=======
+>>>>>>> f9fa43c (Se agrega treding de prueba)
 const apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
 let pantallaFavoritos = document.getElementById('resultados-favoritos');
@@ -57,7 +60,7 @@ function mostrarFavoritos(content) {
                     <img src="./assets/icon-download.svg" alt="icon-dowlnoad">
                 </button>
                 <button class="iconos-acciones-box max" onclick="maxGifDesktopFav('${content.data[i].images.downsized.url}', '${content.data[i].id}', '${content.data[i].slug}', '${content.data[i].username}', '${content.data[i].title}')">
-                    <img src="./assets/icon-max.svg" alt="icon-max">
+                    <img src="./assets/icon-max-normal.svg" alt="icon-max">
                 </button>
             </div>
             <div class="textos-descripcion-gif-favoritos">

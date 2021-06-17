@@ -147,3 +147,7 @@ get_gifs()
 
 listen_id("trending-btn-previous",show_previous_gif)
 listen_id("trending-btn-next",show_next_gif)
+
+/*  */
+
+ 
