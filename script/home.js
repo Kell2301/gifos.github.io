@@ -17,7 +17,7 @@ let busqueda;
 
 let modalMobile = document.createElement("div");
 let modalDesktop = document.createElement("div");
-let favoritosString;
+//  let favoritosString;
 
 inputBuscador.addEventListener('keyup', buscadorActivo);
 

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 "use strict"
-=======
->>>>>>> f9fa43c (Se agrega treding de prueba)
 const apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 
 let pantallaFavoritos = document.getElementById('resultados-favoritos');

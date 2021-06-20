@@ -1003,7 +1003,7 @@ footer .datos .footer-copyright p {
 }
 
 .trending {
-  margin: 79px 0 0 0;
+  margin-top: 79px;
   background-color: #F3F5F8;
   padding-bottom: 82px;
 }
@@ -1035,119 +1035,17 @@ footer .datos .footer-copyright p {
   display: none;
 }
 
-.trending-slider-contenedor {
-  width: 100%;
-  height: auto;
-}
-
 .trending-slider-box {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
   overflow: auto;
 }
 
-.trending-slider-box::-webkit-scrollbar {
-  display: none;
-}
-
 .trending-slider {
-  margin: 32px 22px 0 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 900px;
   width: 243px;
   height: 187px;
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.trending-slider img {
-  width: 243px;
-  height: 187px;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-}
-
-.trending-slider .trenging_slider_img_hover {
-  display: none;
-}
-
-.trending-slider:hover .trenging_slider_img_hover {
-  display: unset;
-  background-color: rgba(87, 46, 229, 0.6);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 243px;
-  height: 187px;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content {
-  position: absolute;
-  top: 10px;
-  left: 54.4257%;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .icon {
-  width: 22px;
-  height: 22px;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img {
-  margin: 0 11px 0 0;
-  border: none;
-  background-color: unset;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img .icon_hiden {
-  display: none;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover {
-  cursor: pointer;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_favorito_hover, .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_download_hover, .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_max_hover {
-  display: unset;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_favorito, .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_download, .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:hover .icon_max {
-  display: none;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:active .icon_favorito_activo {
-  display: unset;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:active .icon_favorito, .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .btn_trenging_slider_box_img:active .icon_favorito_hover {
-  display: none;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .trenging_slider_img_user_title {
-  position: absolute;
-  top: 65.8181%;
-  left: 5.0420%;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .trenging_slider_img_user_title h2 {
-  text-align: start;
-  font-size: 15px;
-  color: white;
-  margin: 0;
-  padding: 0;
-}
-
-.trending-slider:hover .trenging_slider_img_hover .trenging_slider_img_user_title h2:last-child {
-  font-size: 16px;
 }
 
 .gif-contenedor {
@@ -1163,71 +1061,63 @@ footer .datos .footer-copyright p {
 
 .trending-gif {
   width: 243px;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 187px;
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 1024px) {
   .trending-slider-contenedor {
+    margin: 53px 50px 0 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  .trending-slider-box {
-    width: 80%;
-    height: 100%;
-  }
-  .trending-slider-box::-webkit-scrollbar {
-    display: none;
-  }
-  .trending-slider {
-    width: 357px;
-    height: 275px;
-  }
-  .trending-slider img {
-    width: 357px;
-    height: 275px;
-  }
-  .trending-slider:hover .trenging_slider_img_hover {
-    width: 357px;
-    height: 275px;
-  }
-  .trending-slider:hover .trenging_slider_img_hover .btn_trenging_slider_imgs_content .icon {
-    width: 32px;
-    height: 32px;
-  }
-  .slider-prev, .slider-next {
-    display: unset;
+  .slider-prev {
+    display: block;
     width: 40px;
     height: 40px;
+    margin-right: 22px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .slider-prev .prev-blanco, .slider-prev .next-blanco, .slider-next .prev-blanco, .slider-next .next-blanco {
+  .slider-prev .prev-blanco {
     display: none;
-    width: 40px;
-  }
-  .slider-prev:hover {
-    background-color: #572EE5;
-    cursor: pointer;
   }
   .slider-prev:hover .prev-purpura {
     display: none;
   }
   .slider-prev:hover .prev-blanco {
-    display: unset;
+    display: block;
   }
-  .slider-next:hover {
-    background-color: #572EE5;
-    cursor: pointer;
+  .slider-next {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 22px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .slider-next .next-blanco {
+    display: none;
   }
   .slider-next:hover .next-purpura {
     display: none;
@@ -1235,19 +1125,23 @@ footer .datos .footer-copyright p {
   .slider-next:hover .next-blanco {
     display: block;
   }
-}
-
-@media screen and (min-width: 1024px) {
-  .trending-slider-contenedor {
-    margin: 53px 0px 182px 0px;
+  .trending-slider-box {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 275px;
   }
   .trending-slider {
-    margin: 0 29px 0 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    margin: 0;
+    padding: 0;
   }
   .gif-contenedor {
     margin: 0 15px;
-    width: 243px;
-    height: 187px;
+    width: 357px;
+    height: 275px;
   }
   .gif-contenedor:first-child {
     margin-left: 0;
@@ -1255,9 +1149,13 @@ footer .datos .footer-copyright p {
   .gif-acciones {
     position: absolute;
     z-index: 0;
-    background-color: rgba(87, 46, 229, 0.6);
-    width: 243px;
-    height: 187px;
+    background-color: rgba(87, 46, 229, 0.9);
+    width: 357px;
+    height: 275px;
+  }
+  .trending-gif {
+    width: 357px;
+    height: 275px;
   }
   .iconos-acciones-gif {
     display: -webkit-box;
@@ -1331,11 +1229,16 @@ footer .datos .footer-copyright p {
     margin: 0;
   }
   .gif-contenedor:hover .gif-acciones {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .trending {
+    padding: 0;
+  }
   .trending h2 {
     padding-top: 78px;
     font-size: 30px;
@@ -1344,8 +1247,22 @@ footer .datos .footer-copyright p {
     font-size: 18px;
     padding: 14px 0 0 0;
   }
+  .trending-slider-contenedor {
+    margin: 53px 94px 0 94px;
+    padding-bottom: 182px;
+  }
+  .trending-slider-box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .trending-slider {
+    height: 275px;
+  }
   .gif-contenedor {
     width: 357px;
+    height: 275px;
   }
   .gif-acciones {
     width: 357px;
