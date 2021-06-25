@@ -12,15 +12,16 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body>
+<body id="body">
 
     <header>
-        <div class="linea_superior_purpura"></div>
+        <div class="linea_purpura"></div>
 
         <div class="navbar">
-
-            <img src="./assets/logo-mobile.svg" alt="Logo" id="logo">
-            <img src="./assets/logo-desktop.svg" alt="Logo" id="logo-desktop">
+            <a href="./index.html">
+                <img src="./assets/logo-mobile.svg" alt="Logo" id="logo">
+                <img src="./assets/logo-desktop.svg" alt="Logo" id="logo-desktop">
+            </a>
 
             <nav>
                 <div class="menu">
@@ -39,6 +40,8 @@
                         <li><a href="crear.html" class="menu-creargifo">
                                 <img src="./assets/button-crear-gifo.svg" alt="Crear Gifo" class="mas-purpura">
                                 <img src="./assets/CTA-crear-gifo-hover.svg" alt="Crear Gifo" class="mas-blanco">
+                                <img src="./assets/CTA-crear-gifo-active.svg" alt="Crear Gifo"
+                                    class="mas-blanco_active">
                             </a></li>
                     </ul>
                 </div>
@@ -67,7 +70,7 @@
                         <button id="btn-buscador">
                             <img src="./assets/icon-search.svg" alt="Buscar" id="buscador-lupa"
                                 class="icon-lupa-abierta">
-                            <img src="./assets/button-close.svg" alt="Cerrar búsqueda" id="cerrar-busqueda"
+                            <img src="./assets/close.svg" alt="Cerrar búsqueda" id="cerrar-busqueda"
                                 class="icon-cerrar-busqueda">
                         </button>
                     </div>
@@ -99,24 +102,27 @@
         <section class="trending">
 
             <h2>Trending GIFOS</h2>
-            <p class="trending-text">Mira los últimos GIFO de nuestra comunidad.</p>
+            <p class="trending-text">Mira los últimos GIFOS de nuestra comunidad.</p>
 
             <div class="trending-slider-contenedor">
 
                 <div class="slider-prev" id="trending-btn-previous">
+                    <!-- <a href="#"> -->
                     <img src="./assets/button-slider-left.svg" alt="izquierda" class="prev-purpura">
                     <img src="./assets/button-slider-left-hover.svg" alt="izquierda" class="prev-blanco">
+                    <!-- </a> -->
                 </div>
 
                 <div class="trending-slider-box">
                     <div class="trending-slider" id="trending-slider">
-                        <video src="${}"></video>
                     </div>
                 </div>
 
                 <div class="slider-next" id="trending-btn-next">
+                    <!-- <a href="#"> -->
                     <img src="./assets/Button-Slider-right.svg" alt="derecha" class="next-purpura">
                     <img src="./assets/Button-Slider-right-hover.svg" alt="derecha" class="next-blanco">
+                    <!-- </a> -->
                 </div>
 
             </div>
@@ -152,11 +158,13 @@
             </div>
 
         </div>
-        <div class="linea_inferior_purpura"></div>
+        <div class="linea_purpura"></div>
 
     </footer>
-
-    <script src="./script/code.js"></script>
+    <script src="./script/modo_dark.js"></script>
+    <!-- <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script> -->
+    <script src="./script/treding.js"></script>
+    <script src="./script/home.js"></script>
 </body>
 
 </html>

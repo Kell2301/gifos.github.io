@@ -1,4 +1,3 @@
-
 .trending {
     margin-top: 79px;
     background-color: $gris-claro;
@@ -24,22 +23,21 @@
 .slider-next {
     display: none;
 }
+.trending-slider-box{
+    overflow: auto;
+}
 
 .trending-slider {
-
     display: flex;
-    margin: 23px auto 0 auto;
-
     max-width: 900px;
-    width: 100%;
+    width: 243px;
     height: 187px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    // overflow-x: scroll;
+    // overflow-y: hidden;
+    // scroll-snap-type: x mandatory;
 }
 
 .gif-contenedor {
-   
     width: 100%;
     height: 100%;
     margin: 0 20px;
@@ -51,10 +49,9 @@
 }
 
 .trending-gif {
-
     width: 243px;
-    height: 100%;
-    object-fit: cover;
+    height: 187px;
+    // object-fit: cover;
 }
 
 @media screen and (min-width: 1024px) {
@@ -67,21 +64,19 @@
 
     .slider-prev {
         display: block;
-        border: 1px solid $purpura;
         width: 40px;
         height: 40px;
+        margin-right: 22px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         .prev-blanco {
             display: none;
-            width: 8px;
         }
     }
 
     .slider-prev:hover {
-        background-color: $purpura;
 
         .prev-purpura {
             display: none;
@@ -94,21 +89,19 @@
 
     .slider-next {
         display: block;
-        border: 1px solid $purpura;
         width: 40px;
         height: 40px;
+        margin-left: 22px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         .next-blanco {
             display: none;
-            width: 8px;
         }
     }
 
     .slider-next:hover {
-        background-color: $purpura;
 
         .next-purpura {
             display: none;
@@ -121,36 +114,40 @@
 
     .trending-slider-box {
         overflow-x: hidden;
-        width: 795px;
+        overflow-y: hidden;
+        height: 275px;
     }
 
     .trending-slider {
-        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
         transform: translateX(0);
         margin: 0;
         padding: 0;
-        width: 3080px;
-        max-width: 3080px;
-        display: flex;
-        justify-content: flex-start;
     }
+   
 
     .gif-contenedor {
         margin: 0 15px;
-        width: 243px;
-        height: 187px;
+        width: 357px;
+        height: 275px;
     }
 
     .gif-contenedor:first-child {
         margin-left: 0;
     }
+    
 
     .gif-acciones {
         position: absolute;
         z-index: 0;
-        background-color: $purpura_2;
-        width: 243px;
-        height: 187px;
+        background-color: $purpura_1;
+        width: 357px;
+        height: 275px;
+    }
+     .trending-gif{
+        width: 357px;
+        height: 275px;
     }
 
     .iconos-acciones-gif {
@@ -219,12 +216,11 @@
     }
 
     .gif-contenedor:hover .gif-acciones {
-        display: block;
+        display: flex;
     }
 }
 
 @media screen and (min-width: 1440px) {
-   
     .trending {
         padding: 0;
 
@@ -245,7 +241,8 @@
     }
 
     .trending-slider-box {
-        width: 1133px;
+        width: 100%;
+        display: flex;
     }
 
     .trending-slider {
@@ -268,7 +265,6 @@
     }
 
     .trending-gif {
-       
         width: 357px;
     }
 }

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
+    <!-- <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> -->
     <link rel="stylesheet" href="./style/style.css">
     <title>GIFOS</title>
 </head>
@@ -15,16 +15,18 @@
 
     <header>
 
-        <div class="linea_superior_purpura"></div>
+        <div class="linea_purpura"></div>
 
         <div class="navbar">
 
-            <img src="./assets/logo-mobile.svg" alt="Logo GifOs" id="logo">
-            <img src="./assets/logo-desktop.svg" alt="Logo GifOs" id="logo-desktop">
+            <a href="./index.html">
+                <img src="./assets/logo-mobile.svg" alt="Logo" id="logo">
+                <img src="./assets/logo-desktop.svg" alt="Logo" id="logo-desktop">
+            </a>
 
             <nav>
                 <div class="menu">
-                    <input type="checkbox" id="checkbox"/>
+                    <input type="checkbox" id="checkbox" />
 
                     <label for="checkbox" id="icon-burger">
                         <span class="span1"></span>
@@ -38,7 +40,9 @@
                         <li><a href="gifos.html" class="menu-items">MIS GIFOS</a></li>
                         <li><a href="crear.html" class="menu-creargifo">
                                 <img src="./assets/button-crear-gifo.svg" alt="Crear Gifo" class="mas-purpura">
-                                <img src="./assets/button-crear-gifo-hover.svg" alt="Crear Gifo" class="mas-blanco">
+                                <img src="./assets/CTA-crear-gifo-hover.svg" alt="Crear Gifo" class="mas-blanco">
+                                <img src="./assets/CTA-crear-gifo-active.svg" alt="Crear Gifo"
+                                    class="mas-blanco_active">
                             </a></li>
                     </ul>
                 </div>
@@ -50,6 +54,7 @@
 
     <main>
 
+
         <section class="header-favoritos">
 
             <img src="./assets/icon-favoritos.svg" alt="favoritos">
@@ -60,7 +65,7 @@
 
         <section id="favoritos-vacio">
 
-            <img src="./assets/icon-mis-gifos-sin-contenido.svg" alt="favoritos sin contenido">
+            <img src="./assets/icon-fav-sin-contenido.svg" alt="favoritos sin contenido">
             <h3>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</h3>
 
         </section>
@@ -69,10 +74,10 @@
 
             <div class="resultados-favoritos" id="resultados-favoritos">
 
-                
-            </div> 
 
-            
+            </div>
+
+
 
         </section>
 
@@ -101,6 +106,10 @@
             </div>
 
         </section>
+
+    </main>
+
+    </section>
 
     </main>
 
@@ -134,12 +143,16 @@
             </div>
 
         </div>
-        <div class="linea-inferior_purpura"></div>
+        <div class="linea_purpura"></div>
 
     </footer>
+    <script src="./script/modo_dark.js"></script>
 
-  
-   
+    <!-- <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script> -->
+    <script src="./script/treding.js"></script>
+    <script src="./script/favoritos.js"></script>
+
+
 </body>
 
 </html>
