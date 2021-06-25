@@ -10,18 +10,15 @@ let darkModeActivado = () => {
     body.classList.add('body-dark');
     darkModeBtn.innerHTML = "MODO DIURNO";
 
+    //navbar
     cambioLogos();
     cambioIconoCrearGifo();
 
-
-    if (url === "/index.html" || url === "/gifos/index.html") {
-        
-        cambioIconosBusqueda();
+    if (url === "/index.html" || url === "/gifos/index.html") {      
+      cambioIconosBusqueda();
     }
 
-    
     if (url === "/crear.html" || url === "/gifos/crear.html") {
-       
         cambioCamaras();
     }
 
@@ -32,24 +29,19 @@ let darkModeDesactivado = () => {
     body.classList.remove('body-dark');
     darkModeBtn.innerHTML = "MODO NOCTURNO";
 
-
     cambioLogos();
     cambioIconoCrearGifo();
 
     if (url === "/index.html" || url === "/gifos/index.html") {
-    
         cambioIconosBusqueda();
     }
 
- 
     if (url === "/crear.html" || url === "/gifos/crear.html") {
-    
         cambioCamaras();
     }
 
     localStorage.setItem("darkMode", null);
 }
-
 
 if (darkModeStorage === "activado") {
     darkModeActivado();
@@ -64,10 +56,6 @@ function cambioMode() {
         darkModeDesactivado();
     }
 }
-
-
-
-
 
 function cambioLogos() {
     let logoMobile = document.getElementById('logo');
@@ -100,10 +88,10 @@ function cambioIconosBusqueda() {
 
     if (darkModeBtn.innerHTML == 'MODO NOCTURNO') {
         iconBuscar.setAttribute("src", "./assets/icon-search.svg");
-        btnCerrarBusqueda.setAttribute("src", "./assets/button-close.svg");
+        btnCerrarBusqueda.setAttribute("src", "./assets/close.svg");
     } else {
         iconBuscar.setAttribute("src", "./assets/icon-search-mod-noc.svg");
-        btnCerrarBusqueda.setAttribute("src", "./assets/button-close-modo-noc.svg");
+        btnCerrarBusqueda.setAttribute("src", "./assets/close-modo-noct.svg");
     }
 
 }
@@ -113,10 +101,10 @@ function cambioCamaras() {
     let peliculaIlus = document.getElementById('pelicula-ilus');
 
     if (darkModeBtn.innerHTML == 'MODO NOCTURNO') {
-        camaraIlus.setAttribute("src", "./assets/camara.svg");
-        peliculaIlus.setAttribute("src", "./assets/pelicula.svg");
-    } else {
         camaraIlus.setAttribute("src", "./assets/camara-modo-noc.svg");
         peliculaIlus.setAttribute("src", "./assets/pelicula-modo-noc.svg");
+    } else {
+        camaraIlus.setAttribute("src", "./assets/camara.svg");
+        peliculaIlus.setAttribute("src", "./assets/pelicula.svg");
     }
 }

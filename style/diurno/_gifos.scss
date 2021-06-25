@@ -17,7 +17,7 @@
 #misgifos-vacio {
     text-align: center;
     margin-top: 40px;
-    display: block;
+    display: none;
 
     img {
         width: 120px;
@@ -39,7 +39,6 @@
 }
 
 .resultados-misgifos {
-    
     margin: 38px 10px 53px 10px;
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +47,6 @@
 }
 
 .resultados-gif-box-misgifos {
- 
     width: 156px;
     height: 120px;
     overflow: hidden;
@@ -84,7 +82,6 @@
     }
 
     .resultados-misgifos {
-
         margin: 38px 10px 53px 10px;
         display: flex;
         flex-wrap: wrap;
@@ -93,7 +90,6 @@
     }
 
     .resultados-gif-box-misgifos {
-        
         width: 220px;
         height: 200px;
         margin: 0 10px 25px 10px;

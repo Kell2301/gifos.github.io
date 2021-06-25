@@ -1,9 +1,8 @@
-//menu mobile
 
 .body-dark {
     background-color: $gris-oscuro;
 
-    .linea-superior_purpura {
+    .linea_purpura {
         background-color: $negro;
     }
 
@@ -33,7 +32,6 @@
                         }
                     }
 
-                  
 
                     input:checked ~ label span {
                         background-color: $blanco;
@@ -45,7 +43,6 @@
         
     }
 }
-
 
 @media screen and (min-width: 1024px) {
     .body-dark {

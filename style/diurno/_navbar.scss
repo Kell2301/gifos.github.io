@@ -1,3 +1,16 @@
+
+.linea_purpura {
+    height: 5px;
+    background-color: $purpura;
+    width: 100%;
+}
+
+.dark {
+    .linea_purpura{
+        background-color: $negro;
+    }
+}
+
 header {
     .navbar {
         display: flex;
@@ -24,7 +37,7 @@ header {
                     padding-left: 0px;
                     padding-top: 32px;
                     overflow: hidden;
-                    background-color: $purpura_1;
+                    background-color: $purpura_2;
                     list-style-type: none;
 
                     transition: width 0.3s ease-out;
@@ -39,6 +52,7 @@ header {
                             padding-top: 13px;
                             text-decoration: none;
                             text-align: center;
+                            @include menu-mobile;
                             color: $blanco;
                         }
 
@@ -99,7 +113,9 @@ header {
                     }
                 }
 
-                    input:checked ~ ul {
+          
+
+                input:checked ~ ul {
                     width: 100%;
                     transition: width 0.3s ease-out;
                 }
@@ -147,7 +163,6 @@ header {
                     ul {
                         display: flex;
                         flex-direction: row;
-
                         position: relative;
                         top: 0px;
                         right: 0px;
@@ -167,6 +182,7 @@ header {
                                 padding-bottom: 1px;
                                 padding-top: 3px;
                                 border-bottom: 2px solid white;
+                                @include menu-desktop;
                                 color: $purpura;
                             }
 

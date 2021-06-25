@@ -1,21 +1,23 @@
 @import "diurno/variables";
-@import "diurno/mixins";
 @import "general";
-@import "diurno/modal";
+@import "diurno/mixins";
 @import "diurno/navbar";
-@import "diurno/favoritos";
-@import "diurno/gifos";
+@import "diurno/footer";
+@import "diurno/modal";
 @import "diurno/buscador";
 @import "diurno/trending";
-@import "diurno/footer";
+@import "diurno/favoritos";
+@import "diurno/gifos";
 @import "diurno/crear";
 
-@import "nocturno/buscador";
+
 @import "nocturno/navbar";
+@import "nocturno/footer";
+@import "nocturno/buscador";
 @import "nocturno/favoritos";
 @import "nocturno/gifos";
-@import "nocturno/footer";
 @import "nocturno/crear";
+@import "nocturno/modal";
 
 
 
