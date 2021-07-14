@@ -170,8 +170,12 @@ function subirGifo() {
 }
 
 async function descargarGifCreado(gifImg) {
-    let blob = await fetch(gifImg).then( img => img.blob());;
-    invokeSaveAsDialog(blob, "migifo.gif");
+    llet blob = fetch(gifImg)
+    .then((img) => img.blob())
+    .catch((err) => {
+      console.error(err);
+    });
+  invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
 repetirCaptura.addEventListener('click', repetirGifo);

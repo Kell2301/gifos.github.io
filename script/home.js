@@ -1,55 +1,51 @@
 let apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
-
-
-let inputBuscador = document.getElementById('input-buscador');
-let bloqueBuscador = document.getElementById('buscador');
-let iconBuscar = document.getElementById('buscador-lupa');
-let btnBuscar = document.getElementById('buscador-lupa-gris');
-let btnCerrarBusqueda = document.getElementById('cerrar-busqueda');
-let listaSugerencias = document.getElementById('buscador-sugerencias');
+let inputBuscador = document.getElementById("input-buscador");
+let bloqueBuscador = document.getElementById("buscador");
+let iconBuscar = document.getElementById("buscador-lupa");
+let btnBuscar = document.getElementById("buscador-lupa-gris");
+let btnCerrarBusqueda = document.getElementById("cerrar-busqueda");
+let listaSugerencias = document.getElementById("buscador-sugerencias");
 
 let offsetBusqueda = 0;
-let resultadosBusquedaGIFOS = document.getElementById('resultados-busqueda');
-let btnVerMasResultados = document.getElementById('resultados-vermas');
+let resultadosBusquedaGIFOS = document.getElementById("resultados-busqueda");
+let btnVerMasResultados = document.getElementById("resultados-vermas");
 
-let favoritosString = "";
+// let favoritosString = "";
 let busqueda;
 
 let modalMobile = document.createElement("div");
 let modalDesktop = document.createElement("div");
 //  let favoritosString;
 
-inputBuscador.addEventListener('keyup', buscadorActivo);
+inputBuscador.addEventListener("keyup", buscadorActivo);
 
 function buscadorActivo() {
-    busqueda = inputBuscador.value;
+  busqueda = inputBuscador.value;
 
-  
-    bloqueBuscador.classList.remove('buscador');
-    bloqueBuscador.classList.add('buscador-activo');
-    iconBuscar.style.display = "none";
-    btnCerrarBusqueda.style.display = "block";
+  bloqueBuscador.classList.remove("buscador");
+  bloqueBuscador.classList.add("buscador-activo");
+  iconBuscar.style.display = "none";
+  btnCerrarBusqueda.style.display = "block";
 
-   
-    if (busqueda.length >= 1) {
-        fetch(`https://api.giphy.com/v1/tags/related/${busqueda}?api_key=${apiKey}&limit=4`)
-            .then(response => response.json())
-            .then(data => {
-                sugerenciasData(data);
-            })
-            .catch(err => {
-                console.error("error al traer sugerencias de busqueda", err);
-            })
-    } else {
-        cerrarBoxBusqueda();
-    }
+  if (busqueda.length >= 1) {
+    fetch(
+      `https://api.giphy.com/v1/tags/related/${busqueda}?api_key=${apiKey}&limit=4`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        sugerenciasData(data);
+      })
+      .catch((err) => {
+        console.error("error al traer sugerencias de busqueda", err);
+      });
+  } else {
+    cerrarBoxBusqueda();
+  }
 }
 
-
-
 function sugerenciasData(data) {
-    let sugerencia = data.data;
-    listaSugerencias.innerHTML = `
+  let sugerencia = data.data;
+  listaSugerencias.innerHTML = `
     <li class="sugerencia">
         <img src="./assets/icon-search-gris.svg" alt="sugerencia-lupa-gris"
         class="sugerencia-lupa-gris">
@@ -72,70 +68,70 @@ function sugerenciasData(data) {
     </li>`;
 }
 
-listaSugerencias.addEventListener('click', function (li) {
-    inputBuscador.value = li.target.textContent;
-    busquedaGifos();
-})
-
-btnCerrarBusqueda.addEventListener('click', limpiarBusqueda);
-
-function limpiarBusqueda() {
-    inputBuscador.value = "";
-    inputBuscador.placeholder = "Busca GIFOS y más";
-    bloqueBuscador.classList.add('buscador');
-    bloqueBuscador.classList.remove('buscador-activo');
-    iconBuscar.style.display = "block";
-    btnCerrarBusqueda.style.display = "none";
-}
-
-btnBuscar.addEventListener('click', busquedaGifos);
-inputBuscador.addEventListener('keyup', function (e) {
-    if (e.keyCode === 13) {
-        busquedaGifos();
-    }
+listaSugerencias.addEventListener("click", function (li) {
+  inputBuscador.value = li.target.textContent;
+  busquedaGifos();
 });
 
+btnCerrarBusqueda.addEventListener("click", limpiarBusqueda);
+
+function limpiarBusqueda() {
+  inputBuscador.value = "";
+  inputBuscador.placeholder = "Busca GIFOS y más";
+  bloqueBuscador.classList.add("buscador");
+  bloqueBuscador.classList.remove("buscador-activo");
+  iconBuscar.style.display = "block";
+  btnCerrarBusqueda.style.display = "none";
+}
+
+btnBuscar.addEventListener("click", busquedaGifos);
+inputBuscador.addEventListener("keyup", function (e) {
+  if (e.keyCode === 13) {
+    busquedaGifos();
+  }
+});
 
 function busquedaGifos() {
-    event.preventDefault();
-    let urlBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&offset=${offsetBusqueda}&q=`;
-    let strBusqueda = inputBuscador.value.trim();
-    urlBusqueda = urlBusqueda.concat(strBusqueda);
+  event.preventDefault();
+  let urlBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&offset=${offsetBusqueda}&q=`;
+  let strBusqueda = inputBuscador.value.trim();
+  urlBusqueda = urlBusqueda.concat(strBusqueda);
 
-    fetch(urlBusqueda)
-        .then(response => response.json())
-        .then(content => {
-            resultadosBusquedaGIFOS.innerHTML = "";
-            let contenedorResultadosBusqueda = document.getElementById('resultados-busqueda-contenedor');
-            contenedorResultadosBusqueda.style.display = "block";
+  fetch(urlBusqueda)
+    .then((response) => response.json())
+    .then((content) => {
+      resultadosBusquedaGIFOS.innerHTML = "";
+      let contenedorResultadosBusqueda = document.getElementById(
+        "resultados-busqueda-contenedor"
+      );
+      contenedorResultadosBusqueda.style.display = "block";
 
-            let tituloBusqueda = document.getElementById('titulo-busqueda');
-            tituloBusqueda.innerHTML = inputBuscador.value;
+      let tituloBusqueda = document.getElementById("titulo-busqueda");
+      tituloBusqueda.innerHTML = inputBuscador.value;
 
-            if (content.data == 0) {
-                resultadosBusquedaGIFOS.innerHTML = `
+      if (content.data == 0) {
+        resultadosBusquedaGIFOS.innerHTML = `
                     <div class="busqueda-error-contenedor">
                     <img src="./assets/icon-busqueda-sin-resultado.svg" alt="Busqueda sin resultado" class="busqueda-error-img">
                     <h3 class="busqueda-error-texto">Intenta con otra búsqueda</h3>
                     </div>
                     `;
-                btnVerMasResultados.style.display = "none";
-            } else {
-                for (let i = 0; i < content.data.length; i++) {
-                    traerBusqueda(content.data[i]);
-                }
-            }
-        })
-        .catch(error => {
-            console.log("error busqueda" + error)
-        })
+        btnVerMasResultados.style.display = "none";
+      } else {
+        for (let i = 0; i < content.data.length; i++) {
+          traerBusqueda(content.data[i]);
+        }
+      }
+    })
+    .catch((error) => {
+      console.log("error busqueda" + error);
+    });
 
-    cerrarBoxBusqueda();
+  cerrarBoxBusqueda();
 }
 
-
 function traerBusqueda(content) {
-    resultadosBusquedaGIFOS.innerHTML += `
+  resultadosBusquedaGIFOS.innerHTML += `
                 <div class="resultados-gif-box" onclick="maxGifMobile('${content.images.downsized.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
                 <div class="gif-acciones-resultados">
                     <div class="iconos-acciones-gif">
@@ -159,117 +155,116 @@ function traerBusqueda(content) {
                 `;
 }
 
-
-
 function cerrarBoxBusqueda() {
-    bloqueBuscador.classList.add('buscador');
-    bloqueBuscador.classList.remove('buscador-activo');
-    iconBuscar.style.display = "block";
-    btnCerrarBusqueda.style.display = "none";
+  bloqueBuscador.classList.add("buscador");
+  bloqueBuscador.classList.remove("buscador-activo");
+  iconBuscar.style.display = "block";
+  btnCerrarBusqueda.style.display = "none";
 }
 
-
-btnVerMasResultados.addEventListener('click', verMasResultados);
+btnVerMasResultados.addEventListener("click", verMasResultados);
 
 function verMasResultados() {
-    offsetBusqueda = offsetBusqueda + 12;
-    busquedaGifosVerMas();
+  offsetBusqueda = offsetBusqueda + 12;
+  busquedaGifosVerMas();
 }
 
 function busquedaGifosVerMas() {
-    event.preventDefault();
-    let urlBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&offset=${offsetBusqueda}&q=`;
-    let strBusqueda = inputBuscador.value.trim();
-    urlBusqueda = urlBusqueda.concat(strBusqueda);
+  event.preventDefault();
+  let urlBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&offset=${offsetBusqueda}&q=`;
+  let strBusqueda = inputBuscador.value.trim();
+  urlBusqueda = urlBusqueda.concat(strBusqueda);
 
-    fetch(urlBusqueda)
-        .then(response => response.json())
-        .then(content => {
-            let contenedorResultadosBusqueda = document.getElementById('resultados-busqueda-contenedor');
-            contenedorResultadosBusqueda.style.display = "block";
+  fetch(urlBusqueda)
+    .then((response) => response.json())
+    .then((content) => {
+      console.log(content);
+      let contenedorResultadosBusqueda = document.getElementById(
+        "resultados-busqueda-contenedor"
+      );
+      contenedorResultadosBusqueda.style.display = "block";
 
-            let tituloBusqueda = document.getElementById('titulo-busqueda');
-            tituloBusqueda.innerHTML = inputBuscador.value;
+      let tituloBusqueda = document.getElementById("titulo-busqueda");
+      tituloBusqueda.innerHTML = inputBuscador.value;
 
-            if (content.data == 0) {
-                resultadosBusquedaGIFOS.innerHTML = `
+      if (content.data == 0) {
+        resultadosBusquedaGIFOS.innerHTML = `
                     <div class="busqueda-error-contenedor">
                     <img src="./assets/icon-busqueda-sin-resultado.svg" alt="Busqueda sin resultado" class="busqueda-error-img">
                     <h3 class="busqueda-error-texto">Intenta con otra búsqueda</h3>
                     </div>
                     `;
-                btnVerMasResultados.style.display = "none";
-            } else {
-                for (let i = 0; i < content.data.length; i++) {
-                    traerBusqueda(content.data[i]);
-                }
-            }
-        })
-        .catch(error => {
-            console.log("error busqueda ver mas" + error)
-        })
+        btnVerMasResultados.style.display = "none";
+      } else {
+        for (let i = 0; i < content.data.length; i++) {
+          traerBusqueda(content.data[i]);
+        }
+      }
+    })
+    .catch((error) => {
+      console.log("error busqueda ver mas" + error);
+    });
 }
 
-
-let trendingTopicsTexto = document.getElementById('trending-topics');
+let trendingTopicsTexto = document.getElementById("trending-topics");
 window.onload = trendingTopics();
 
 function trendingTopics() {
-    let url = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
+  let url = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
 
-    return fetch(url)
-        .then(resp => resp.json())
-        .then(content => {
-            let topics = content.data;
-            trendingTopicsTexto.innerHTML = `<span class="trending-topics-link">${topics[0]}</span>, <span class="trending-topics-link">${topics[1]}</span>, <span class="trending-topics-link">${topics[2]}</span>, <span class="trending-topics-link">${topics[3]}</span>, <span class="trending-topics-link">${topics[4]}</span>`;
+  return fetch(url)
+    .then((resp) => resp.json())
+    .then((content) => {
+      let topics = content.data;
+      trendingTopicsTexto.innerHTML = `<span class="trending-topics-link">${topics[0]}</span>, <span class="trending-topics-link">${topics[1]}</span>, <span class="trending-topics-link">${topics[2]}</span>, <span class="trending-topics-link">${topics[3]}</span>, <span class="trending-topics-link">${topics[4]}</span>`;
 
-            let topicBtn = document.getElementsByClassName('trending-topics-link');
-            for (let x = 0; x < topicBtn.length; x++) {
-                topicBtn[x].addEventListener('click', function (e) {
-                    inputBuscador.value = topics[x];
-                    busquedaGifos();
-                })
-            }
-        })
-        .catch(err => {
-            console.log("error trending topics" + err);
-        })
+      let topicBtn = document.getElementsByClassName("trending-topics-link");
+      for (let x = 0; x < topicBtn.length; x++) {
+        topicBtn[x].addEventListener("click", function (e) {
+          inputBuscador.value = topics[x];
+          busquedaGifos();
+        });
+      }
+    })
+    .catch((err) => {
+      console.log("error trending topics" + err);
+    });
 }
 
+function agregarFavoritoBusqueda(gif) {
+  let iconFav = document.getElementById(
+    "icon-fav-" + gif.length > 200 ? new URLSearchParams(gif).get("cid") : gif
+  );
+  iconFav.setAttribute("src", "./assets/icon-fav-active.svg");
 
-
-
-function agregarFavoritoBusqueda(gif){
-    let iconFav = document.getElementById('icon-fav-' + gif.length > 200 ? new URLSearchParams(gif).get('cid') : gif);
-    iconFav.setAttribute("src", "./assets/icon-fav-active.svg");
-
-    agregarFavorito(gif);
+  agregarFavorito(gif);
 }
 
 function agregarFavorito(gif) {
+  if (favoritosString == null || favoritosString == "") {
+    favoritosArray = [];
+  } else {
+    favoritosArray = JSON.parse(favoritosString);
+  }
 
-    if (favoritosString == null || favoritosString == "") {
-        favoritosArray = [];
-    } else {
-        favoritosArray = JSON.parse(favoritosString);
-    }
-
-    favoritosArray.push(gif);
-    favoritosString = JSON.stringify(favoritosArray);
-    localStorage.setItem("gifosFavoritos", favoritosString);
+  favoritosArray.push(gif);
+  favoritosString = JSON.stringify(favoritosArray);
+  localStorage.setItem("gifosFavoritos", favoritosString);
 }
-
 
 async function descargarGif(gifImg, gifNombre) {
-    let blob = await fetch(gifImg).then(img => img.blob());;
-    invokeSaveAsDialog(blob, gifNombre + ".gif");
+  let blob = fetch(gifImg)
+    .then((img) => img.blob())
+    .catch((err) => {
+      console.error(err);
+    });
+  invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
-
 function maxGifMobile(img, id, slug, user, title) {
-    if (window.matchMedia("(max-width: 1023px)").matches) {
-        modalMobile.style.display = "block";
-        modalMobile.innerHTML = `
+  if (window.matchMedia("(max-width: 1023px)").matches) {
+    modalMobile.style.display = "block";
+    modalMobile.innerHTML = `
     <button class="modal-btn-close" onclick="cerrarModalMobile()"><img src="./assets/close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
@@ -284,28 +279,26 @@ function maxGifMobile(img, id, slug, user, title) {
         </div>
     </div>
     `;
-        modalMobile.classList.add("modal-activado");
-        document.body.appendChild(modalMobile);
-    }
+    modalMobile.classList.add("modal-activado");
+    document.body.appendChild(modalMobile);
+  }
 }
 
 function cerrarModalMobile() {
-    modalMobile.style.display = "none";
-} 
-
-function agregarFavoritoMaxMobile(gif){
-
-    let iconFavMaxMobile = document.getElementById('icon-fav-max-mob-' + gif);
-    iconFavMaxMobile.setAttribute("src", "./assets/icon-fav-active.svg");
-
-    agregarFavorito(gif);
+  modalMobile.style.display = "none";
 }
 
+function agregarFavoritoMaxMobile(gif) {
+  let iconFavMaxMobile = document.getElementById("icon-fav-max-mob-" + gif);
+  iconFavMaxMobile.setAttribute("src", "./assets/icon-fav-active.svg");
 
-function maxGifDesktop(img, id, slug, user, title){
-    if (window.matchMedia("(min-width: 1023px)").matches){
-        modalDesktop.style.display = "block";
-        modalDesktop.innerHTML = `
+  agregarFavorito(gif);
+}
+
+function maxGifDesktop(img, id, slug, user, title) {
+  if (window.matchMedia("(min-width: 1023px)").matches) {
+    modalDesktop.style.display = "block";
+    modalDesktop.innerHTML = `
     <button class="modal-btn-close" onclick="cerrarModalDesktop()"><img src="./assets/close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
@@ -321,18 +314,17 @@ function maxGifDesktop(img, id, slug, user, title){
     </div>
     `;
     modalDesktop.classList.add("modal-activado");
-        document.body.appendChild(modalDesktop);
-    }
+    document.body.appendChild(modalDesktop);
+  }
 }
 
 function cerrarModalDesktop() {
-    modalDesktop.style.display = "none";
-} 
+  modalDesktop.style.display = "none";
+}
 
-function agregarFavoritoMax(gif){
+function agregarFavoritoMax(gif) {
+  let iconFavMax = document.getElementById("icon-fav-max-" + gif);
+  iconFavMax.setAttribute("src", "./assets/icon-fav-active.svg");
 
-    let iconFavMax = document.getElementById('icon-fav-max-' + gif);
-    iconFavMax.setAttribute("src", "./assets/icon-fav-active.svg");
-
-    agregarFavorito(gif);
+  agregarFavorito(gif);
 }
