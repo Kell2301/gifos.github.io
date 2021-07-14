@@ -85,15 +85,13 @@ function borrarFav(gif) {
   location.reload();
 }
 
-async function descargarGif(gifImg, gifNombre) {
-  let blob = fetch(gifImg)
-    .then((img) => img.blob())
-    .catch((err) => {
-      console.error(err);
-    });
 
-  invokeSaveAsDialog(blob, gifNombre + ".gif");
+async function descargarGif(gifImg, gifNombre) {
+  let blob = await fetch(gifImg).then(img => img.blob());;
+invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
+
+
 
 function maxGifMobileFav(img, id, slug, user, title) {
   if (window.matchMedia("(max-width: 1023px)").matches) {

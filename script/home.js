@@ -251,13 +251,8 @@ function agregarFavorito(gif) {
   favoritosString = JSON.stringify(favoritosArray);
   localStorage.setItem("gifosFavoritos", favoritosString);
 }
-
 async function descargarGif(gifImg, gifNombre) {
-  let blob = fetch(gifImg)
-    .then((img) => img.blob())
-    .catch((err) => {
-      console.error(err);
-    });
+  let blob = await fetch(gifImg).then(img => img.blob());;
   invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 

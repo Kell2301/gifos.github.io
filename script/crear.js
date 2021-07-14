@@ -149,7 +149,7 @@ function subirGifo() {
                 <button class="overlay-video-button" id="btn-creargifo-descargar" onclick="descargarGifCreado('${miGifId}')">
                 <img src="./assets/icon-download.svg" alt="download">
                 </button>
-                <button class="overlay-video-button" id="btn-creargifo-link">
+                <button class="overlay-video-button" id="btn-creargifo-link" >
                 <img src="./assets/icon-link-normal.svg" alt="link">
                 </button>
                 `;
@@ -168,15 +168,12 @@ function subirGifo() {
 
         .catch(error => console.log("error al subir gif a GIPHY" + error))
 }
-
 async function descargarGifCreado(gifImg) {
-    llet blob = fetch(gifImg)
-    .then((img) => img.blob())
-    .catch((err) => {
-      console.error(err);
-    });
-  invokeSaveAsDialog(blob, gifNombre + ".gif");
+    let blob = await fetch(gifImg).then( img => img.blob());;
+    invokeSaveAsDialog(blob, "migifo.gif");
 }
+
+
 
 repetirCaptura.addEventListener('click', repetirGifo);
 

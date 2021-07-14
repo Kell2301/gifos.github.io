@@ -77,21 +77,17 @@ function borrarGifo(gif) {
 
   location.reload();
 }
-
 async function descargarGif(gifImg, gifNombre) {
-  let blob = fetch(gifImg)
-    .then((img) => img.blob())
-    .catch((err) => {
-      console.error(err);
-    });
+  let blob = await fetch(gifImg).then(img => img.blob());;
   invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
+
 
 function maxGifMobileMG(img, id, slug, user, title) {
   if (window.matchMedia("(max-width: 1023px)").matches) {
     modalMobileMG.style.display = "block";
     modalMobileMG.innerHTML = `
-    <button class="modal-btn-close" onclick="cerrarModalMobileMG()"><img src="./assets/button-close.svg" alt=""></button>
+    <button class="modal-btn-close" onclick="cerrarModalMobileMG()"><img src="./assets/close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
     <div class="modal-bar">
@@ -100,7 +96,7 @@ function maxGifMobileMG(img, id, slug, user, title) {
             <p class="modal-titulo">${title}</p>
         </div>
         <div>
-            <button class="modal-btn" onclick="borrarGifo('${id}')"><img src="./assets/icon_trash.svg" alt="delete-gif"></button>
+            <button class="modal-btn" onclick="borrarGifo('${id}')"><img src="./assets/icon-trash-normal.svg" alt="delete-gif"></button>
             <button class="modal-btn" onclick="descargarGif('${img}', '${slug}')"><img src="./assets/icon-download.svg" alt="download-gif"></button>
         </div>
     </div>
@@ -118,7 +114,7 @@ function maxGifDesktopMG(img, id, slug, user, title) {
   if (window.matchMedia("(min-width: 1023px)").matches) {
     modalDesktopMG.style.display = "block";
     modalDesktopMG.innerHTML = `
-    <button class="modal-btn-close" onclick="cerrarModalDesktopMG()"><img src="./assets/button-close.svg" alt=""></button>
+    <button class="modal-btn-close" onclick="cerrarModalDesktopMG()"><img src="./assets/close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
     <div class="modal-bar">
@@ -127,7 +123,7 @@ function maxGifDesktopMG(img, id, slug, user, title) {
             <p class="modal-titulo">${title}</p>
         </div>
         <div>
-            <button class="modal-btn" onclick="borrarGifo('${id}')"><img src="./assets/icon_trash.svg" alt="delete-gif"></button>
+            <button class="modal-btn" onclick="borrarGifo('${id}')"><img src="./assets/icon-trash-normal.svg" alt="delete-gif"></button>
             <button class="modal-btn" onclick="descargarGif('${img}', '${slug}')"><img src="./assets/icon-download.svg" alt="download-gif"></button>
         </div>
     </div>
