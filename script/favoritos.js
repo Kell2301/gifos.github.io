@@ -33,7 +33,9 @@ function buscarFavoritos() {
         }
       })
       .catch((err) => {
-        console.error("fetch favoritos fallo", err);
+        if (window.location.pathname != "/index.html") {
+          console.error("fetch favoritos fallo", err);
+        }
       });
   }
 }

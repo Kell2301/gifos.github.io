@@ -232,10 +232,10 @@ function trendingTopics() {
 }
 
 function agregarFavoritoBusqueda(gif) {
-  let iconFav = document.getElementById(
-    "icon-fav-" + gif.length > 200 ? new URLSearchParams(gif).get("cid") : gif
-  );
-  iconFav.setAttribute("src", "./assets/icon-fav-active.svg");
+  // let iconFav = document.getElementById(
+  //   "icon-fav-" + gif.length > 200 ? new URLSearchParams(gif).get("cid") : gif
+  // );
+  // iconFav.setAttribute("src", "./assets/icon-fav-active.svg");
 
   agregarFavorito(gif);
 }
