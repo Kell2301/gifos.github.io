@@ -3,7 +3,7 @@ let apiKey = "XGSt7kcxD9MUFO07xzU7J203XNPURke4";
 let misGifosArray = [];
 let misGifosString = localStorage.getItem("misGifos");
 
-let pantallaMisGifos = document.getElementById('resultados-misgifos');
+let pantallaMisGifos = document.getElementById("resultados-misgifos");
 
 let modalMobileMG = document.createElement("div");
 let modalDesktopMG = document.createElement("div");
@@ -11,34 +11,33 @@ let modalDesktopMG = document.createElement("div");
 buscarMisGifos();
 
 function buscarMisGifos() {
-    let pantallaMisGifosVacio = document.getElementById('misgifos-vacio');
+  let pantallaMisGifosVacio = document.getElementById("misgifos-vacio");
 
-    if (misGifosString == null || misGifosString == "[]") {
-        pantallaMisGifosVacio.style.display = "block";
-        pantallaMisGifos.style.display = "none";
- 
-    } else {
-        misGifosArray = JSON.parse(misGifosString);
-        let urlMisGifos = `https://api.giphy.com/v1/gifs?ids=${misGifosArray.toString()}&api_key=${apiKey}`;
+  if (misGifosString == null || misGifosString == "[]") {
+    pantallaMisGifosVacio.style.display = "block";
+    pantallaMisGifos.style.display = "none";
+  } else {
+    misGifosArray = JSON.parse(misGifosString);
+    let urlMisGifos = `https://api.giphy.com/v1/gifs?ids=${misGifosArray.toString()}&api_key=${apiKey}`;
 
-        fetch(urlMisGifos)
-            .then(response => response.json())
+    fetch(urlMisGifos)
+      .then((response) => response.json())
 
-            .then(content => {
-                console.log(content);
-                mostrarMisGifos(content);
-            })
-            .catch(err => {
-                console.error('fetch mis gifos fallo', err);
-            })
-    }
+      .then((content) => {
+        console.log(content);
+        mostrarMisGifos(content);
+      })
+      .catch((err) => {
+        console.error("fetch mis gifos fallo", err);
+      });
+  }
 }
 
 function mostrarMisGifos(content) {
-    let gifosMisGifosArray = content.data;
+  let gifosMisGifosArray = content.data;
 
-    for (let i = 0; i < gifosMisGifosArray.length; i++) {
-        pantallaMisGifos.innerHTML += `
+  for (let i = 0; i < gifosMisGifosArray.length; i++) {
+    pantallaMisGifos.innerHTML += `
         <div class="resultados-gif-box-misgifos" onclick="maxGifMobileMG('${content.data[i].images.downsized.url}', '${content.data[i].id}', '${content.data[i].slug}', '${content.data[i].username}', '${content.data[i].title}')">
                     <div class="gif-acciones-resultados-misgifos">
                         <div class="iconos-acciones-gif">
@@ -60,36 +59,38 @@ function mostrarMisGifos(content) {
                     <img src="${content.data[i].images.downsized.url}" alt="${content.data[i].title}" class="resultados-gif">
                 </div>
         `;
-    }
+  }
 }
 
-function borrarGifo(gif){
-    let arrayAuxGifos = [];
-    arrayAuxGifos = JSON.parse(misGifosString);
-    let indiceGif = arrayAuxGifos.indexOf(gif);
+function borrarGifo(gif) {
+  let arrayAuxGifos = [];
+  arrayAuxGifos = JSON.parse(misGifosString);
+  let indiceGif = arrayAuxGifos.indexOf(gif);
 
-    console.log(arrayAuxGifos);
-    console.log(indiceGif);
+  console.log(arrayAuxGifos);
+  console.log(indiceGif);
 
-    arrayAuxGifos.splice(indiceGif,1);
+  arrayAuxGifos.splice(indiceGif, 1);
 
-    let nuevoMisGifosString = JSON.stringify(arrayAuxGifos);
-    localStorage.setItem("misGifos", nuevoMisGifosString);
+  let nuevoMisGifosString = JSON.stringify(arrayAuxGifos);
+  localStorage.setItem("misGifos", nuevoMisGifosString);
 
-    location.reload();
+  location.reload();
 }
-
-
 
 async function descargarGif(gifImg, gifNombre) {
-    let blob = await fetch(gifImg).then(img => img.blob());;
-    invokeSaveAsDialog(blob, gifNombre + ".gif");
+  let blob = fetch(gifImg)
+    .then((img) => img.blob())
+    .catch((err) => {
+      console.error(err);
+    });
+  invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
 
 function maxGifMobileMG(img, id, slug, user, title) {
-    if (window.matchMedia("(max-width: 1023px)").matches) {
-        modalMobileMG.style.display = "block";
-        modalMobileMG.innerHTML = `
+  if (window.matchMedia("(max-width: 1023px)").matches) {
+    modalMobileMG.style.display = "block";
+    modalMobileMG.innerHTML = `
     <button class="modal-btn-close" onclick="cerrarModalMobileMG()"><img src="./assets/button-close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
@@ -104,19 +105,19 @@ function maxGifMobileMG(img, id, slug, user, title) {
         </div>
     </div>
     `;
-        modalMobileMG.classList.add("modal-activado");
-        document.body.appendChild(modalMobileMG);
-    }
+    modalMobileMG.classList.add("modal-activado");
+    document.body.appendChild(modalMobileMG);
+  }
 }
 
 function cerrarModalMobileMG() {
-    modalMobileMG.style.display = "none";
+  modalMobileMG.style.display = "none";
 }
 
 function maxGifDesktopMG(img, id, slug, user, title) {
-    if (window.matchMedia("(min-width: 1023px)").matches) {
-        modalDesktopMG.style.display = "block";
-        modalDesktopMG.innerHTML = `
+  if (window.matchMedia("(min-width: 1023px)").matches) {
+    modalDesktopMG.style.display = "block";
+    modalDesktopMG.innerHTML = `
     <button class="modal-btn-close" onclick="cerrarModalDesktopMG()"><img src="./assets/button-close.svg" alt=""></button>
     <img src="${img}" alt="${id}" class="modal-gif">
 
@@ -131,12 +132,11 @@ function maxGifDesktopMG(img, id, slug, user, title) {
         </div>
     </div>
     `;
-        modalDesktopMG.classList.add("modal-activado");
-        document.body.appendChild(modalDesktopMG);
-    }
+    modalDesktopMG.classList.add("modal-activado");
+    document.body.appendChild(modalDesktopMG);
+  }
 }
 
 function cerrarModalDesktopMG() {
-    modalDesktopMG.style.display = "none";
-} 
-
+  modalDesktopMG.style.display = "none";
+}
