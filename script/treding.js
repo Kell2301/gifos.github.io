@@ -10,7 +10,6 @@ function trendingGifos() {
     .then((resp) => resp.json())
     .then((content) => {
       let trendingGifArray = content.data;
-      console.log(trendingGifArray);
       let trendingGIFOhtml = "";
 
       for (let i = 0; i < trendingGifArray.length; i++) {

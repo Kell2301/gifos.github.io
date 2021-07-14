@@ -15,7 +15,7 @@ buscarFavoritos();
 
 function buscarFavoritos() {
   let pantallaFavoritosVacio = document.getElementById("favoritos-vacio");
-  console.log(favoritosString.length);
+
   if (favoritosString == null || favoritosString == "[]") {
     pantallaFavoritosVacio.style.display = "block";
     pantallaFavoritos.style.display = "none";
@@ -33,7 +33,7 @@ function buscarFavoritos() {
         }
       })
       .catch((err) => {
-        if (window.location.pathname != "/index.html") {
+        if (!window.location.pathname.includes("/index.html")) {
           console.error("fetch favoritos fallo", err);
         }
       });
