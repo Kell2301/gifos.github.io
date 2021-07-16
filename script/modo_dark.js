@@ -65,7 +65,7 @@ function cambioLogos() {
     logoDesktop.setAttribute("src", "./assets/logo-desktop.svg");
     logoMobile.setAttribute("src", "./assets/logo-mobile.svg");
   } else {
-    logoDesktop.setAttribute("src", "./assets/logo-modo-noc.svg");
+    logoDesktop.setAttribute("src", "./assets/Logo-modo-noc.svg");
     logoMobile.setAttribute("src", "./assets/logo-mobile-modo-noct.svg");
   }
 }
